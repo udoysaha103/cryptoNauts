@@ -1,0 +1,90 @@
+.navWrapper{
+    width: 70%;
+    height: fit-content;
+    background-color: rgba(0, 171, 250, 0.3);
+    border-radius: 100px;
+    padding: 0.5% 2%;
+
+    margin: 0.75% 0 1.5% 0;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.leftContent{
+    width: 25%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #CCFFEF;
+}
+
+.centerContent{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo p{
+    font-size: 2em;
+    font-weight: bold;
+    color: white;
+    letter-spacing: 0.1em;
+}
+
+.logo img{
+    width: 75%;
+    height: auto;
+}
+
+.rightContent{
+    width: 25%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.rightButton{
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bgButton{
+    width: fit-content;
+    height: fit-content;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+}
+
+.bgButton img, .bgButton p{
+    position: absolute;
+}
+
+.linkButton{
+    width: 30%;
+}
+
+.wbgButton{
+    width: fit-content;
+    height: fit-content;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

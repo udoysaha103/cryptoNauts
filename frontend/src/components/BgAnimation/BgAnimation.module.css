@@ -1,0 +1,39 @@
+.superWrapper{
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+
+    font-size: 1rem;
+}
+
+.canvasWrapper{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+
+    background:rgba(0,10,20,1) url(https://i.imgur.com/r838U7u.jpg) center no-repeat;
+    background-size:cover;
+    image-rendering: pixelated;
+}
+
+.space{
+    width: 100%;
+    height: 100%;
+}
+
+.contentWrapper{
+    position: relative;
+
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

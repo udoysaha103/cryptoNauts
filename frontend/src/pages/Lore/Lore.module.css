@@ -1,0 +1,82 @@
+.animationWrapper{
+    width: 100%;
+    height: 88%;
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+.topText{
+    position: absolute;
+    margin-bottom: 5%;
+    animation: scaleDown 8s forwards linear 0s 1 normal;
+}
+
+@keyframes scaleDown {
+    0% {
+      transform: translate3d(0%, 0%, 0) scale(1);
+    }
+    100% {
+      transform: translate3d(0%, 0%, 0) scale(0);
+    }
+}
+
+.header{
+    font-size: 5.5em;
+    font-weight: bolder;
+    color: #ECC760;
+    letter-spacing: 0.08em;
+    line-height: 70%;
+}
+
+.episode{
+    font-size: 3em;
+    font-weight: bolder;
+    color: #ECC760;
+    letter-spacing: 0.05em;
+    line-height: 200%;
+}
+
+.loreText{
+    transform: perspective(230px) rotateX(35deg) translate3d( 0, 70%, 0);
+    transform-style: preserve-3d;
+    backface-visibility: visible;
+    animation: slideUpText 180s linear 0s 1 normal;
+}
+
+@keyframes slideUpText {
+  0% {
+    transform: perspective(230px) rotateX(35deg) translate3d( 0, 70%, 0);
+    transition: transform 1s linear;
+  }
+  50% {
+    transform: perspective(230px) rotateX(35deg) translate3d( 0, -50%, 0) scale(1);
+    transition: transform 1s linear;
+  }
+  70% {
+    transform: perspective(230px) rotateX(35deg) translate3d( 0, -100%, 0) scale(0.3);
+    transition: transform 1s linear;
+  }
+  75% {
+    transform: perspective(230px) rotateX(35deg) translate3d( 0, -200%, 0) scale(0);
+    transition: transform 1s linear;
+  }
+  100% {
+      transform: perspective(230px) rotateX(35deg) translate3d( 0, -400%, 0) scale(0);
+      transition: transform 1s linear;
+  }
+}
+
+.loreText p{
+    font-size: 2em;
+    font-weight: 300;
+    color: #ECC760;
+    line-height: 150%;
+}
