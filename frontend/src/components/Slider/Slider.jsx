@@ -73,7 +73,7 @@ function Slider() {
       if (instanceRef.current) {
         instanceRef.current.next();
       }
-    }, 10000); // Change slide every 10 seconds
+    }, 99993000); // Change slide every 3 seconds
   
     return () => clearInterval(interval);
   });
@@ -90,24 +90,24 @@ function Slider() {
     <div className="roller-slider">
       <div className="slider-background">
         <div className="slider-background-inside">
-          <img src="hc2s.png" alt="" />
+          <img src="hc2s.png" alt=""/>
           <img src="hc2f.png" alt="" className="slider-background-inside-fill"/>
         </div>
       </div>
       <div ref={sliderRef} className="keen-slider slider-content">
         {images.map((img, idx) => {
           const distanceFromCenter = Math.abs(currentSlide - idx);
-          const scale = distanceFromCenter === 0 ? 0.8 : (distanceFromCenter === 1 || distanceFromCenter === 40) ? 0.7 : (distanceFromCenter === 2 || distanceFromCenter === 39) ? 0.55 : 0.4;
+          const scale = distanceFromCenter === 0 ? 0.9 : (distanceFromCenter === 1 || distanceFromCenter === 40) ? 0.75 : (distanceFromCenter === 2 || distanceFromCenter === 39) ? 0.6 : 0.5;
 
           return (
             <div
               key={idx}
               className="keen-slider__slide slider-item"
               onClick={() => handleImageClick(idx)}
-              style={{overflow: "visible"}}
+              style={{overflow: "visible", zIndex: `${scale * 100}`}}
             >
               <div className="slider-item-inside" style={{
-                height :`${scale * 100}%`
+                height :`${scale * 100}%`,
               }}>
                 <img
                   src={`/${img.name}.png`}

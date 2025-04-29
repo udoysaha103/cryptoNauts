@@ -1,6 +1,8 @@
+import "./App.css";
+
 import { useEffect, useRef } from 'react';  // 👈 also import useRef
 import { useSocket } from './context/socketContext.jsx';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useNavigate } from 'react-router-dom';
 
 import Home from './pages/Home/Home.jsx';
 import Profile from './pages/Profile/Profile.jsx';
@@ -10,6 +12,8 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
+  const navigate = useNavigate();
+
   const socket = useSocket();
   const notificationSound = useRef(null);  // 👈 useRef, not useState
 
@@ -50,15 +54,15 @@ function App() {
       }
 
       toast(
-        <div style={{ display: 'flex', alignItems: 'center' }}>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: 'fit-content', height: 'fit-content', border: "4px solid #00F2D8", backgroundColor: "rgba(160,159,198, 0.2)", backdropFilter: "blur(10px)", borderRadius: "20px", padding: "1em 1em", cursor: "pointer" }} onClick={() => { navigate(`/profile/${data.message}`); }}>
           <img 
-            src="/your-image-path.png" 
-            alt="New Registration" 
-            style={{ width: '40px', height: '40px', marginRight: '10px', borderRadius: '50%' }} 
+            src={`/${data.message}.png`} 
+            alt="New Docked Coin" 
+            style={{ width: '5em', height: '5em', marginRight: '1vw', borderRadius: '20px' }} 
           />
-          <div>
-            <strong>New Registration!</strong>
-            <div>{data.message}</div>
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+            <strong style={{fontSize: "1.25em", fontWeight: "bolder", wordWrap: "nowrap"}}>${data.message}</strong>
+            <div style={{fontSize: "1em", fontWeight: 500, marginTop: "0.2vh"}}>has Docked</div>
           </div>
         </div>,
         { icon: false }
@@ -81,7 +85,7 @@ function App() {
 
     <ToastContainer 
       position="bottom-right"
-      autoClose={5000}
+      autoClose={8000}
       hideProgressBar={true}
       newestOnTop={true}
       closeOnClick={false}

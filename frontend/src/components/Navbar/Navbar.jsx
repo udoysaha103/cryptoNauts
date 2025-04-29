@@ -6,8 +6,16 @@ function Navbar() {
     <div className={styles.navWrapper}>
       <div className={styles.leftContent}>
         <div><a href="">About Nauts</a></div>
-        <div><a href="">Github</a></div>
-        <div><a href="">FAQ</a></div>
+
+        <div className={`${styles.rightButton} ${styles.linkButton}`}>
+          <Link to="/lore" className={styles.bgButton}>
+            <img src="rightButtonBg.svg" alt="" />
+            <p>Lore</p>
+          </Link>
+        </div>
+
+        {/* <div><a href="">Github</a></div> */}
+        {/* <div><a href="">FAQ</a></div> */}
       </div>
 
       <div className={styles.centerContent}>
@@ -18,12 +26,12 @@ function Navbar() {
       </div>
 
       <div className={styles.rightContent}>
-        <div className={`${styles.rightButton} ${styles.linkButton}`}>
+        {/* <div className={`${styles.rightButton} ${styles.linkButton}`}>
           <Link to="/lore" className={styles.bgButton}>
             <img src="rightButtonBg.svg" alt="" />
             <p>Lore</p>
           </Link>
-        </div>
+        </div> */}
 
         <div className={`${styles.rightButton} ${styles.linkButton}`}>
           <a href="" className={styles.bgButton}>

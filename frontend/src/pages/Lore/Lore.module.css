@@ -31,7 +31,7 @@
 .header{
     font-size: 5.5em;
     font-weight: bolder;
-    color: #ECC760;
+    color: #00F2D8;
     letter-spacing: 0.08em;
     line-height: 70%;
 }
@@ -39,7 +39,7 @@
 .episode{
     font-size: 3em;
     font-weight: bolder;
-    color: #ECC760;
+    color: #00F2D8;
     letter-spacing: 0.05em;
     line-height: 200%;
 }
@@ -77,6 +77,6 @@
 .loreText p{
     font-size: 2em;
     font-weight: 300;
-    color: #ECC760;
+    color: #00F2D8;
     line-height: 150%;
 }

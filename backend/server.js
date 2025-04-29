@@ -7,7 +7,7 @@ const http = require("http");
 const { Server } = require("socket.io");
 
 const mongoose = require("mongoose");
-import nautsModel from "./models/nautsModel";
+const nautsModel = require("./models/nautsModel"); // Import your model
 
 const app = express();
 
@@ -111,14 +111,15 @@ app.post("/updateCoin/:name/:CA", (req, res) => {
 
 
 app.get('/getLastCreatedCoin', (req, res) => {
-    // find the last created coin in the database. Only 1 record is needed.
-    nautsModel.findOne({}, {}, { sort: { 'createdAt': -1 } })
+    // find the last created coin in the database that has a valid CA. Only 1 record is needed.
+    nautsModel.findOne({ contractAddress: { $ne: null } })
+        .sort({ updatedAt: -1 })
         .then((coin) => {
             if (coin) {
-                console.log("Last created coin:", coin.name);
-                res.json(coin);
+                // console.log("Last created coin:", coin);
+                res.json(coin.name);
             } else {
-                console.log("No coins found in the database.");
+                console.log("No coins found with a valid contract address.");
                 res.status(404).json({ error: "No coins found" });
             }
         })
@@ -134,7 +135,7 @@ app.get('/getRemainingCoins', (req, res) => {
     // find the records that has no contract address
     nautsModel.find({ contractAddress: null })
         .then((coins) => {
-            console.log("Remaining coins:", coins.length);
+            // console.log("Remaining coins:", coins.length);
             res.json(coins.length);
         })
         .catch((error) => {

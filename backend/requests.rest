@@ -1,7 +1,18 @@
-POST http://localhost:4000/register
+POST http://localhost:4000/createCoin
 Content-Type: application/json
 
 {
-    "name": "Nauts"
+    "name": "WizardNaut",
+    "ticker": "WizardNaut",
+    "rank": "Quantum Admiral",
+    "rankDesc": "Visionary strategists of the Solana fleet, these Nauts orchestrate epic voyages through wormholes and quantum anomalies, guiding humanity's destiny among the stars.",
+    "desc": "Arcane secrets whisper from the stars, guiding my hand. With spells of starlight and enchantments born from cosmic dust, I weave magic through galaxies. Knowledge flows through my veins as I uncover ancient cosmic texts, using mystical wisdom to preserve balance across celestial realms. My magical prowess is both revered and feared, an endless pursuit of universal mysteries."
 }
 ###
+
+GET http://localhost:4000/getLastCreatedCoin
+
+
+###
+
+POST http://localhost:4000/updateCoin/CryptoNaut/demoAddress

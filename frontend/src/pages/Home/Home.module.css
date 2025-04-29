@@ -16,14 +16,72 @@
 
 .newsSection{
     width: 100%;
+    height: 7vh;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    display: none;
+
+    margin-bottom: 3vh;
 }
 
-.sec2left{
+.sec0left{
     width: 35%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+}
+.sec0left > img{
+    width: 100%;
+    height: auto;
+}
+
+.sec0leftContent{
+    width: 100%;
+    height: 100%;
+    padding: 2% 10%;
+    position: absolute;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.sec0leftContent1{
+    font-size: 1em;
+    font-weight: 500;
+}
+.sec0leftContent2{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+.sec0leftContent2 > img{
+    height: 1.5em;
+    width: auto;
+    border-radius: 50%;
+    margin-right: 1vw;
+}
+.sec0leftContent2 > a{
+    text-decoration: underline;
+    font-weight: bold;
+    font-size: 1em;
+}
+
+.sec0center{
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.sec0center > img{
+    width: 95%;
+    height: auto;
+}
+
+.sec0right > img{
+    transform: scaleX(-1);
 }
 
 
@@ -67,7 +125,7 @@
     align-items: center;
     position: absolute;
 
-    background-color: rgba(0,0,0,0.005);
+    background-color: rgba(0,0,0,0.0025);
     backdrop-filter: blur(5px);
     border-radius: 20%;
 }
@@ -79,7 +137,7 @@
 }
 
 .fillImg{
-    opacity: 0.005;
+    opacity: 0.0025;
 }
 
 .baseContent{
@@ -129,7 +187,7 @@
 }
 .c1r1_mcap{
     font-size: 2.15em;
-    font-weight: 300;
+    font-weight: 500;
     color: #00F2D8;
 }
 
@@ -197,7 +255,7 @@
 
 .slider{
     width: 100%;
-    height: 30vh;
+    height: 50vh;
     margin-bottom: 5vh;
 }
 
@@ -265,7 +323,7 @@
     gap: 5%;
 }
 
-.sec3Content img{
+.sec3Content > img{
     height: 95%;
     width: auto;
     margin-top: 2%;
@@ -311,4 +369,42 @@
 .sec3Btn > span{
     font-size: 1.05em;
     font-weight: bold;
+}
+
+/* ------- Sec 3 end ------ */
+
+/* ------- Sec 4 start ------ */
+
+.sec4ContentText1_1{
+    font-size: 2.25em;
+    font-weight: bolder;
+}
+
+.sec4ContentText1_2{
+    font-size: 1em;
+    font-weight: 400;
+}
+
+.sec4ContentText1_3{
+    display: flex;
+    align-items: center;
+    gap: 3%;
+}
+
+.sec4ContentText1_3 span{
+    font-size: 1.5em;
+    font-weight: bolder;
+    line-height: 70%;
+}
+
+.sec4ContentText1_3 img{
+    width: auto;
+    height: 1.5em;
+}
+
+.chartContainer{
+    width: 40%;
+    height: 100%;
+    border: 4px solid #00F2D8;
+    border-radius: 40px;
 }

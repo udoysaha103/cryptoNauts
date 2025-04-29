@@ -1,10 +1,12 @@
 import styles from "./Home.module.css";
 
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 import BgAnimation from "../../components/BgAnimation/BgAnimation";
 import Navbar from "../../components/Navbar/Navbar";
 import Slider from "../../components/Slider/Slider";
+import Chart from "../../components/Chart/Chart";
 
 function Home() {
   const copyToClipboard = async (text) => {
@@ -77,6 +79,46 @@ function Home() {
     setBaseMarketCap(fetchMarketCap(import.meta.env.VITE_BASE_COIN_ADDRESS));
   }, []);
 
+
+  const [newestCoin, setNewestCoin] = useState(null);
+  const [remainingDocks, setRemainingDocks] = useState(0);
+  // in every 5 seconds, fetch the latest docked coin
+  useEffect(() => {
+    const fetchLatestDockedCoin = async () => {
+      const apiUrl = `${import.meta.env.VITE_API_URL}/getLastCreatedCoin`;
+      try {
+        const response = await fetch(apiUrl);
+        const data = await response.json();
+        setNewestCoin(data);
+      }
+      catch (error) {
+        console.error("Error fetching latest docked coin:", error);
+      }
+    };
+
+    const fetchRemainingDocks = async () => {
+      const apiUrl = `${import.meta.env.VITE_API_URL}/getRemainingCoins`;
+      fetch(apiUrl)
+        .then((response) => response.json())
+        .then((data) => {
+          setRemainingDocks(data);
+        })
+        .catch((error) => {
+          console.error("Error fetching remaining docks:", error);
+        });
+    };
+
+    fetchLatestDockedCoin(); // Initial fetch
+    const intervalId = setInterval(fetchLatestDockedCoin, 5000); // Fetch every 5 seconds
+    fetchRemainingDocks(); // Initial fetch
+    const intervalId2 = setInterval(fetchRemainingDocks, 5000); // Fetch every 5 seconds
+
+    return () => {
+      clearInterval(intervalId); // Cleanup on unmount
+      clearInterval(intervalId2); // Cleanup on unmount
+    }
+  }, []);
+
   return (
     <BgAnimation>
       <div className={styles.allWrapper}>
@@ -85,20 +127,30 @@ function Home() {
         <div className={styles.homeWrapper}>
 
           <div className={styles.newsSection}>
-            <div className={styles.sec2left}>
-              <img src="sec2_1.svg" alt="" />
-              <div className={styles.sec2leftContent}>
-                <div>New Docks:</div>
-                <div>
-                  <img src="#" alt="Naut Img" />
-                  {/* latest docked coin */}
+            <div className={styles.sec0left}>
+              <img src="hc0bg.png" alt="" />
+              <div className={styles.sec0leftContent}>
+                <div className={styles.sec0leftContent1}>New Docks:</div>
+                <div className={styles.sec0leftContent2}>
+                  <img src={`./${newestCoin}.png`} alt="Naut Img" />
+                  <Link to={`/profile/${newestCoin}`}>{newestCoin}</Link>
                 </div>
               </div>
             </div>
-            <div className={styles.sec2center}>
+
+            <div className={styles.sec0center}>
               <img src="sec2_2.svg" alt="" />
             </div>
-            <div className={`${styles.sec2left} ${styles.sec2right}`}></div> 
+
+            <div className={`${styles.sec0left} ${styles.sec0right}`}>
+              <img src="hc0bg.png" alt="" />
+              <div className={styles.sec0leftContent}>
+                <div className={styles.sec0leftContent1}>Remaining Docks:</div>
+                <div className={styles.sec0leftContent2} style={{textDecoration: "underline", fontWeight: "bold"}}>
+                  {remainingDocks} Nauts
+                </div>
+              </div>
+            </div> 
           </div>
 
           <div className={styles.baseCoin}>
@@ -151,9 +203,11 @@ function Home() {
             </div>
           </div>
 
+
           <div className={styles.slider}>
             <Slider/>
           </div>
+
 
           <div className={styles.sec3}>
             <div className={styles.sec3Bg}>
@@ -196,6 +250,51 @@ function Home() {
               </div>
             </div>
           </div>
+
+
+          {/* Actually section 4 */}
+          <div className={styles.sec3}>
+            <div className={styles.sec3Bg}>
+              <div className={styles.sec3BgInner}>
+                <div className={styles.sec3BgFillImageContainer}>
+                  <img src="hc4f.png" alt="" className={styles.fillImg}/>
+                </div>
+                <img src="hc4s.png" alt="" />
+              </div>
+            </div>
+
+            <div className={styles.sec3Content}>
+              <div className={styles.sec3ContentText} style={{width: "55%"}}>
+                <div className={styles.sec4ContentText1_1}>$Nauts Token</div>
+                
+                <div className={styles.sec4ContentText1_2}>$Nauts is launched with a mission to build a meme trend and form the Lore foundation of the Cryptonauts universe — while swarming the Solana blockchain with the Nauts army. The Lore expands with every new Naut, unlocking endless possibilities as the popularity grows.</div>
+
+                <div className={styles.c1r3}>
+                  <div className={styles.c1r3CA}>CA: {import.meta.env.VITE_BASE_COIN_ADDRESS}</div>
+                  <div className={styles.copyButtonContainer} onClick={() => {copyToClipboard(import.meta.env.VITE_BASE_COIN_ADDRESS)}}>
+                    <img src="cpyBtn.png" alt="" />
+                  </div>
+                </div>
+
+                <div className={styles.sec4ContentText1_2}>Only the first $Nauts token was launched by the dev team. From here, any traveler can launch the remaining Nauts, docking new legends and forging the next chapter of the journey.</div>
+
+                <div className={styles.sec4ContentText1_3}>
+                  <span>Buy $Nauts from:</span>
+                  <a href={import.meta.env.VITE_LINK1} target="_blank"><img src="./link1.png" alt="" /></a>
+                  <a href={import.meta.env.VITE_LINK2} target="_blank"><img src="./link2.png" alt="" /></a>
+                  <a href={import.meta.env.VITE_LINK3} target="_blank"><img src="./link3.png" alt="" /></a>
+                  <a href={import.meta.env.VITE_LINK4} target="_blank"><img src="./link4.png" alt="" /></a>
+                  <a href={import.meta.env.VITE_LINK5} target="_blank"><img src="./link5.png" alt="" /></a>
+                </div>
+              </div>
+
+              <div className={styles.chartContainer}>
+                <Chart/>
+              </div>
+            </div>
+          </div>
+
+
         </div>
       </div>
     </BgAnimation>

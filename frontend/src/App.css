@@ -1,0 +1,7 @@
+/* Removes padding around the toast content */
+.Toastify__toast {
+    padding: 0 !important;
+    background: transparent !important; /* optional: make background transparent if you're styling it yourself */
+    box-shadow: none !important; /* optional: remove shadow */
+    border-radius: 0 !important; /* optional: use your own radius */
+  }
