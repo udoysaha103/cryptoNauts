@@ -7,6 +7,36 @@ import Navbar from "../../components/Navbar/Navbar";
 import Slider from "../../components/Slider/Slider";
 
 function Home() {
+  const copyToClipboard = async (text) => {
+    try {
+        if (navigator.clipboard) {
+            await navigator.clipboard.writeText(text);
+            return true;
+        }
+
+        const textArea = document.createElement("textarea");
+        textArea.value = text;
+        textArea.style.position = "fixed";
+        document.body.appendChild(textArea);
+        textArea.focus();
+        textArea.select();
+
+        try {
+            const successful = document.execCommand("copy");
+            document.body.removeChild(textArea);
+            return successful;
+        } catch (err) {
+            console.error("Fallback: Failed to copy:", err);
+            document.body.removeChild(textArea);
+            return false;
+        }
+    } catch (err) {
+        console.error("Failed to copy:", err);
+        return false;
+    }
+  };
+
+
   const [baseMarketCap, setBaseMarketCap] = useState(0);
 
   const formatKMB = (num) => {
@@ -87,24 +117,36 @@ function Home() {
 
               <div className={styles.contentText}>
                 <div className={styles.c1r1}>
-                  <div>Cryptonaut</div>
-                  <div>Mcap : {baseMarketCap}</div>
+                  <div className={styles.c1r1_name}>Cryptonaut</div>
+                  <div className={styles.c1r1_mcap}>Mcap : {baseMarketCap}</div>
                 </div>
                 <div className={styles.c1r2}>
-                  Beyond the edge of SOL-320B, hidden among the stars,<br/>
-                  lies Cryptonauts — the last frontier of the memecoin revolution.<br/>
-                  Led by $Naut, the first of the undocked, we do not chase moons.<br/>
+                  Beyond the edge of SOL-320B, hidden among the stars,
+                  lies Cryptonauts — the last frontier of the memecoin revolution.
+                  Led by $Naut, the first of the undocked, we do not chase moons.
                   We forge constellations of wealth.<br/>
                   <br/>
-                  In a universe where fortunes are written among the stars, <br/>
-                  Cryptonaut leads the charge.<br/>
-                  Buckle up. Your journey to unimaginable heights begins — now.<br/>
+                  In a universe where fortunes are written among the stars,
+                  Cryptonaut leads the charge.
+                  Buckle up. Your journey to unimaginable heights begins — now.
                 </div>
                 <div className={styles.c1r3}>
-                  <div>CA: {import.meta.env.VITE_BASE_COIN_ADDRESS}</div>
-                  <div className={styles.copyButtonContainer}></div>
+                  <div className={styles.c1r3CA}>CA: {import.meta.env.VITE_BASE_COIN_ADDRESS}</div>
+                  <div className={styles.copyButtonContainer} onClick={() => {copyToClipboard(import.meta.env.VITE_BASE_COIN_ADDRESS)}}>
+                    <img src="cpyBtn.png" alt="" />
+                  </div>
                 </div>
-                <div className={styles.c1r4}></div>
+                <div className={styles.c1r4}>
+                  <div className={styles.c1r4btn}>
+                    <img src="hc1btn.png" alt="" />
+                    <span>About Nauts</span>
+                  </div>
+
+                  <div className={styles.c1r4btn} style={{marginLeft: "5%"}}>
+                    <img src="hc1btn.png" alt="" />
+                    <span>Buy $Nauts</span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -113,10 +155,47 @@ function Home() {
             <Slider/>
           </div>
 
-          {/* <div style={{display: "flex", alignItems: "center", justifyContent: "center", position: "relative"}}>
-            <img src="Container Blur FIll.svg" alt=""  style={{opacity: "0.2", filter: "blur(10px)"}}/>
-            <img src="Empty Container.svg" alt="" style={{position: "absolute"}} />
-          </div> */}
+          <div className={styles.sec3}>
+            <div className={styles.sec3Bg}>
+              <div className={styles.sec3BgInner}>
+                <div className={styles.sec3BgFillImageContainer}>
+                  <img src="hc3f.png" alt="" className={styles.fillImg}/>
+                </div>
+                <img src="hc3s.png" alt="" />
+              </div>
+            </div>
+
+            <div className={styles.sec3Content}>
+              <img src="hc3img.png" alt="" />
+
+              <div className={styles.sec3ContentText}>
+                
+                <div className={styles.sec3ContentText1_1}>About Nauts</div>
+                
+                <div className={styles.sec3ContentText1_2}>
+                  CryptoNauts are voyagers lost in the void — some docked, many still drifting across the endless dark.<br/><br/>
+                  
+                  The first Naut has found his way to Station Xeon... but countless others await a hand to guide them home. If you hold $50 worth of $Nauts Tokens, you hold the power to awaken a Naut.<br/><br/>
+                  
+                  Find an Undocked Naut, follow the docking sequence on pump.fun, and breathe life into the fleet.Each Naut you Dock is forever bound to your legacy, your tokens, and the growing legend of the CryptoNauts.
+
+                  <br/><br/>The stars call, traveler. Will you answer?
+                </div>
+                
+                <div className={styles.sec3BtnContainer}>
+                  <div className={styles.sec3Btn}>
+                    <img src="hc1btn.png" alt="" />
+                    <span>Explore Nauts</span>
+                  </div>
+
+                  <div className={styles.sec3Btn} style={{marginLeft: "5%"}}>
+                    <img src="hc1btn.png" alt="" />
+                    <span>Buy $Nauts</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </BgAnimation>
