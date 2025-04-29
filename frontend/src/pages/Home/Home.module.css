@@ -1,3 +1,124 @@
-.homeWrapper{
-    width: 70%;
+.allWrapper{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: scroll;
 }
+.allWrapper::-webkit-scrollbar{
+    display: none;
+}
+
+.homeWrapper{
+    width: 80%;
+}
+
+.newsSection{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    display: none;
+}
+
+.sec2left{
+    width: 35%;
+}
+
+
+/* ------ Base coin start ------ */
+
+.baseCoin{
+    width: 100%;
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+    margin-bottom: 5vh;
+}
+
+.baseBg{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.baseBgInner{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.baseBgFillImageContainer{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+
+    background-color: rgba(0,0,0,0.005);
+    backdrop-filter: blur(5px);
+    border-radius: 20%;
+}
+
+.baseBgInner img{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+.fillImg{
+    opacity: 0.005;
+}
+
+.baseContent{
+    width: 100%;
+    height: 100%;
+    padding: 4% 5%;
+    position: absolute;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.contentimage{
+    height: 100%;
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contentimage img{
+    width: auto;
+    height: 100%;
+}
+
+.contentText{
+    width: 70%;
+    height: 100%;
+}
+
+
+/* ------ Base coin end ------ */
+
+/* -------- Slider start -------- */
+
+.slider{
+    width: 100%;
+    height: 25vh;
+}
+
+/* -------- Slider end -------- */

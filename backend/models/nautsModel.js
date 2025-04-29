@@ -6,7 +6,7 @@ const nautSchema = new mongoose.Schema({
     rank: { type: String, required: true },
     rankDesc: { type: String, required: true },
     desc: { type: String, required: true },
-    contractAddress: { type: String, required: true },
+    contractAddress: { type: String, default: null },
 
     timestamp: { type: Date, default: Date.now },
     updatedAt: { type: Date, default: Date.now }

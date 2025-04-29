@@ -75,7 +75,7 @@ function App() {
   return <>
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/profile" element={<Profile />} />
+      <Route path="/profile/:coinName" element={<Profile />} />
       <Route path="/lore" element={<Lore />} />
     </Routes>
 
