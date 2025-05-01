@@ -20,6 +20,10 @@
     justify-content: space-between;
     color: #CCFFEF;
 }
+.leftContent > div:hover{
+    transform: scale(1.05);
+    transition: transform 0.2s ease-in-out;
+}
 
 .centerContent{
     width: 50%;
@@ -53,6 +57,10 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+.rightContent > div:hover{
+    transform: scale(1.05);
+    transition: transform 0.2s ease-in-out;
 }
 
 .rightButton{
@@ -92,4 +100,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
+}
+.wbgButton:hover{
+    transform: scale(1.25);
+    transition: transform 0.2s ease-in-out;
 }

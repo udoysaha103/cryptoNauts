@@ -2,11 +2,11 @@ POST http://localhost:4000/createCoin
 Content-Type: application/json
 
 {
-    "name": "WizardNaut",
-    "ticker": "WizardNaut",
-    "rank": "Quantum Admiral",
-    "rankDesc": "Visionary strategists of the Solana fleet, these Nauts orchestrate epic voyages through wormholes and quantum anomalies, guiding humanity's destiny among the stars.",
-    "desc": "Arcane secrets whisper from the stars, guiding my hand. With spells of starlight and enchantments born from cosmic dust, I weave magic through galaxies. Knowledge flows through my veins as I uncover ancient cosmic texts, using mystical wisdom to preserve balance across celestial realms. My magical prowess is both revered and feared, an endless pursuit of universal mysteries."
+    "name": "PepeNaut",
+    "ticker": "PepeNaut",
+    "rank": "Cosmic Legend",
+    "rankDesc": "The stuff of interstellar legend—peerless Nauts whose exploits transcend the known universe, heroes whose daring adventures inspire generations and whose names become timeless myths.",
+    "desc": "Meme incarnate. Sentient irony. Born from the laughter fields of SOL-320B, PepeNaut exists in a state of sublime awareness — a balance of joy and melancholy, past and present. He leads not through command, but through resonance. Crews follow him without question, drawn by a force even the crypto-elders struggle to define. In moments of crisis, when tension cracks and the stars seem to sigh, he simply shrugs and says, \"Feels like fate, man.\" None can tell if he's joking… or prophesying."
 }
 ###
 
@@ -15,4 +15,4 @@ GET http://localhost:4000/getLastCreatedCoin
 
 ###
 
-POST http://localhost:4000/updateCoin/CryptoNaut/demoAddress
+POST http://localhost:4000/updateCoin/PepeNaut/demoAddress

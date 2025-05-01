@@ -1,0 +1,73 @@
+.imageBox{
+    width: 100%;
+    height: 100%;
+
+    position: relative;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.imageBox > img{
+    width: 90%;
+    height: auto;
+    position: absolute;
+    border: 0.5em solid #00F2D8;
+    border-radius: 10%;
+}
+
+.imgContent{
+    position: absolute;
+    width: 90%;
+    height: 90%;
+}
+
+.ingContentInner{
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.marketCap{
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    padding: 1.5% 3%;
+    border: 2px solid black;
+    border-radius: 50px;
+    background-color: rgba(255,255,255,0.9);
+    color: black;
+    font-size: 1em;
+    font-weight: 500;
+}
+
+.coinName{
+    position: absolute;
+    bottom: 6%;
+    left: 5%;
+    padding: 1.5% 3%;
+    border: 2px solid black;
+    border-radius: 50px;
+    background-color: rgba(255,255,255,0.9);
+    color: black;
+    font-size: 1em;
+    font-weight: 500;
+}
+
+.dockedImg{
+    position: absolute;
+    bottom: 4%;
+    right: 5%;
+    width: 18%;
+    height: auto;
+}
+
+.undockedImg{
+    position: absolute;
+    bottom:4%;
+    right: 5%;
+    width: 18%;
+    height: auto;
+    transform: scale(1.05);
+}

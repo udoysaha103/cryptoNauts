@@ -158,11 +158,16 @@
     justify-content: center;
     align-items: center;
     margin-right: 2%;
+    cursor: pointer;
 }
 
 .contentimage img{
     width: auto;
     height: 90%;
+}
+.contentimage img:hover{
+    transform: scale(1.05);
+    transition: all 0.2s ease-in-out;
 }
 
 .contentText{
@@ -184,6 +189,7 @@
 .c1r1_name{
     font-size: 2.25em;
     font-weight: bolder;
+    cursor: pointer;
 }
 .c1r1_mcap{
     font-size: 2.15em;
@@ -247,6 +253,10 @@
     font-size: 1.05em;
     font-weight: bold;
 }
+.c1r4btn:hover{
+    transform: scale(1.05);
+    transition: all 0.2s ease-in-out;
+}
 
 
 /* ------ Base coin end ------ */
@@ -266,6 +276,7 @@
 .sec3{
     width: 100%;
     height: 60vh;
+    display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
@@ -370,6 +381,10 @@
     font-size: 1.05em;
     font-weight: bold;
 }
+.sec3Btn:hover{
+    transform: scale(1.05);
+    transition: all 0.2s ease-in-out;
+}
 
 /* ------- Sec 3 end ------ */
 
@@ -401,10 +416,122 @@
     width: auto;
     height: 1.5em;
 }
+.sec4ContentText1_3 img:hover{
+    transform: scale(1.15);
+    transition: all 0.2s ease-in-out;
+}
 
 .chartContainer{
     width: 40%;
     height: 100%;
-    border: 4px solid #00F2D8;
-    border-radius: 40px;
+}
+
+/* -------- Sec 4 end --------- */
+
+/* -------- Sec 5 start --------- */
+
+.sec5{
+    height: 215vw;
+}
+
+.sec5Content{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.sec5Text{
+    width: 100%;
+    height: 10vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+}
+.sec5Text1{
+    font-size: 2.25em;
+    font-weight: bolder;
+}
+.sec5Text2{
+    font-size: 1em;
+    font-weight: 400;
+}
+
+.sec5ImageWrapper{
+    width: 100%;
+    height: 200vw;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 10 columns */
+    grid-auto-rows: auto;
+    justify-items: center;
+}
+
+.sec5ImageContainer{
+    width: 19vw;
+    height: 19vw;
+    cursor: pointer;
+}
+
+.sec5ImageContainer:hover{
+    transform: scale(1.05);
+    transition: all 0.2s ease-in-out;
+}
+
+/* ----- Sec 5 end ------ */
+
+/* ----- Sec 6 start ------ */
+
+.sec6{
+    height: 50vh;
+}
+
+.sec6Content{
+    width: 80%;
+    height: 100%;
+    position: absolute;
+    padding: 2% 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+    font-size: 1vw;
+}
+
+.sec6header{
+    font-size: 2.25em;
+    font-weight: bolder;
+}
+
+.sec6text1{
+    font-size: 1.05em;
+    font-weight: 400;
+    line-height: 120%;
+}
+
+.sec6text2{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 1%;
+    font-size: 1em;
+    font-weight: 400;
+}
+
+.sec6text2Bar{
+    width: 5px;
+    height: 100%;
+    background-color: #4A4A4A;
+    border-radius: 50px;
+}
+
+.sec6text2Text{
+    font-size: 1.05em;
+    font-weight: 400;
+    line-height: 120%;
 }

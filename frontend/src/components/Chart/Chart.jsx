@@ -1,6 +1,7 @@
 import styles from './Chart.module.css';
 
-function Chart() {
+function Chart({coinAddress}) {
+
   return (
     <div className={styles.chartWrapper}>
         <iframe
@@ -8,7 +9,7 @@ function Chart() {
             title="Dexscreener Trading Chart"
             width="500"
             height="400"
-            src="https://www.dexscreener.com/widget-chart/en/ethereum/pe-light/0xHrAgkjmK9PHUyQ4ijU6j6NVvAZQ4HQ1jPCsm626cZxSQ?theme=light&chartType=1&chartResolution=30&drawingToolbars=true"
+            src={`https://www.dexscreener.com/widget-chart/en/solana/pe-light/0x${coinAddress}?theme=dark&chartType=1&chartResolution=30&drawingToolbars=true`}
             frameBorder="0"
             allowFullScreen >
         </iframe>

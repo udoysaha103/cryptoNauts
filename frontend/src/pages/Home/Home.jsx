@@ -1,14 +1,73 @@
 import styles from "./Home.module.css";
 
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 
 import BgAnimation from "../../components/BgAnimation/BgAnimation";
 import Navbar from "../../components/Navbar/Navbar";
 import Slider from "../../components/Slider/Slider";
 import Chart from "../../components/Chart/Chart";
+import ImageBox from "../../components/ImageBox/ImageBox";
+import Footer from "../../components/Footer/Footer";
+
+const images = [
+  {name: "WizardNaut"},
+  {name: "KnightNaut"},
+  {name: "BonkNaut"},
+  {name: "GhibliNaut"},
+  {name: "RickNaut"},
+  {name: "MonkeyNaut"},
+  {name: "PopeNaut"},
+  {name: "SmudgeNaut"},
+  {name: "KarenNaut"},
+  {name: "ApeNaut"},
+  {name: "DegenNaut"},
+  {name: "PweaseNaut"},
+  {name: "SusNaut"},
+  {name: "ShibaNaut"},
+  {name: "ZombieNaut"},
+  {name: "FwogNaut"},
+  {name: "BearNaut"},
+  {name: "BullNaut"},
+  {name: "NinjaNaut"},
+  {name: "ClownNaut"},
+  {name: "NuggetNaut"},
+  {name: "StonksNaut"},
+  {name: "FartNaut"},
+  {name: "RetardNaut"},
+  {name: "PepeNaut"},
+  {name: "AlienNaut"},
+  {name: "TrumpNaut"},
+  {name: "ElonNaut"},
+  {name: "SatoshiNaut"},
+  {name: "GokuNaut"},
+  {name: "WojakNaut"},
+  {name: "PengiNaut"},
+  {name: "InvisibleNaut"},
+  {name: "NeilArmNaut"},
+  {name: "ChadNaut"},
+  {name: "PandaNaut"},
+  {name: "DogeNaut"},
+  {name: "MatrixNaut"},
+  {name: "SpoderNaut"},
+  {name: "DarkNaut"},
+]
 
 function Home() {
+  const location = useLocation();
+
+  useEffect(() => {
+    // Scroll to section after component mounts
+    if (location.hash) {
+      const element = document.querySelector(location.hash);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  }, [location]);
+
+  const navigate = useNavigate();
+
   const copyToClipboard = async (text) => {
     try {
         if (navigator.clipboard) {
@@ -128,22 +187,22 @@ function Home() {
 
           <div className={styles.newsSection}>
             <div className={styles.sec0left}>
-              <img src="hc0bg.png" alt="" />
+              <img src="/hc0bg.png" alt="" />
               <div className={styles.sec0leftContent}>
                 <div className={styles.sec0leftContent1}>New Docks:</div>
                 <div className={styles.sec0leftContent2}>
-                  <img src={`./${newestCoin}.png`} alt="Naut Img" />
+                  <img src={`/${newestCoin}.png`} alt="Naut Img" />
                   <Link to={`/profile/${newestCoin}`}>{newestCoin}</Link>
                 </div>
               </div>
             </div>
 
             <div className={styles.sec0center}>
-              <img src="sec2_2.svg" alt="" />
+              <img src="/sec2_2.svg" alt="" />
             </div>
 
             <div className={`${styles.sec0left} ${styles.sec0right}`}>
-              <img src="hc0bg.png" alt="" />
+              <img src="/hc0bg.png" alt="" />
               <div className={styles.sec0leftContent}>
                 <div className={styles.sec0leftContent1}>Remaining Docks:</div>
                 <div className={styles.sec0leftContent2} style={{textDecoration: "underline", fontWeight: "bold"}}>
@@ -153,23 +212,24 @@ function Home() {
             </div> 
           </div>
 
+
           <div className={styles.baseCoin}>
             <div className={styles.baseBg}>
               <div className={styles.baseBgInner}>
                 <div className={styles.baseBgFillImageContainer}>
-                  <img src="hc1f.png" alt="" className={styles.fillImg}/>
+                  <img src="/hc1f.png" alt="" className={styles.fillImg}/>
                 </div>
-                <img src="hc1s.png" alt="" />
+                <img src="/hc1s.png" alt="" />
               </div>
             </div>
             <div className={styles.baseContent}>
               <div className={styles.contentimage}>
-                <img src="hc1f1.png" alt="CryptoNaut" />
+                <img src="/hc1f1.png" alt="CryptoNaut" onClick={() => navigate('/profile/CryptoNaut')} />
               </div>
 
               <div className={styles.contentText}>
                 <div className={styles.c1r1}>
-                  <div className={styles.c1r1_name}>Cryptonaut</div>
+                  <div className={styles.c1r1_name} onClick={() => navigate('/profile/CryptoNaut')}>Cryptonaut</div>
                   <div className={styles.c1r1_mcap}>Mcap : {baseMarketCap}</div>
                 </div>
                 <div className={styles.c1r2}>
@@ -185,17 +245,17 @@ function Home() {
                 <div className={styles.c1r3}>
                   <div className={styles.c1r3CA}>CA: {import.meta.env.VITE_BASE_COIN_ADDRESS}</div>
                   <div className={styles.copyButtonContainer} onClick={() => {copyToClipboard(import.meta.env.VITE_BASE_COIN_ADDRESS)}}>
-                    <img src="cpyBtn.png" alt="" />
+                    <img src="/cpyBtn.png" alt="" />
                   </div>
                 </div>
                 <div className={styles.c1r4}>
-                  <div className={styles.c1r4btn}>
-                    <img src="hc1btn.png" alt="" />
+                  <div className={styles.c1r4btn} onClick={() => navigate('/#aboutNauts')}>
+                    <img src="/hc1btn.png" alt="" />
                     <span>About Nauts</span>
                   </div>
 
-                  <div className={styles.c1r4btn} style={{marginLeft: "5%"}}>
-                    <img src="hc1btn.png" alt="" />
+                  <div className={styles.c1r4btn} style={{marginLeft: "5%"}} onClick={() => navigate('/#aboutNauts')}>
+                    <img src="/hc1btn.png" alt="" />
                     <span>Buy $Nauts</span>
                   </div>
                 </div>
@@ -209,18 +269,18 @@ function Home() {
           </div>
 
 
-          <div className={styles.sec3}>
+          <div className={styles.sec3} id="aboutNauts">
             <div className={styles.sec3Bg}>
               <div className={styles.sec3BgInner}>
                 <div className={styles.sec3BgFillImageContainer}>
-                  <img src="hc3f.png" alt="" className={styles.fillImg}/>
+                  <img src="/hc3f.png" alt="" className={styles.fillImg}/>
                 </div>
-                <img src="hc3s.png" alt="" />
+                <img src="/hc3s.png" alt="" />
               </div>
             </div>
 
             <div className={styles.sec3Content}>
-              <img src="hc3img.png" alt="" />
+              <img src="/hc3img.png" alt="" />
 
               <div className={styles.sec3ContentText}>
                 
@@ -237,13 +297,13 @@ function Home() {
                 </div>
                 
                 <div className={styles.sec3BtnContainer}>
-                  <div className={styles.sec3Btn}>
-                    <img src="hc1btn.png" alt="" />
+                  <div className={styles.sec3Btn} onClick={() => navigate('/#nautsArmy')}>
+                    <img src="/hc1btn.png" alt="" />
                     <span>Explore Nauts</span>
                   </div>
 
-                  <div className={styles.sec3Btn} style={{marginLeft: "5%"}}>
-                    <img src="hc1btn.png" alt="" />
+                  <div className={styles.sec3Btn} style={{marginLeft: "5%"}} onClick={() => navigate('/#nautsToken')}>
+                    <img src="/hc1btn.png" alt="" />
                     <span>Buy $Nauts</span>
                   </div>
                 </div>
@@ -253,13 +313,13 @@ function Home() {
 
 
           {/* Actually section 4 */}
-          <div className={styles.sec3}>
+          <div className={styles.sec3} id="nautsToken">
             <div className={styles.sec3Bg}>
               <div className={styles.sec3BgInner}>
                 <div className={styles.sec3BgFillImageContainer}>
-                  <img src="hc4f.png" alt="" className={styles.fillImg}/>
+                  <img src="/hc4f.png" alt="" className={styles.fillImg}/>
                 </div>
-                <img src="hc4s.png" alt="" />
+                <img src="/hc4s.png" alt="" />
               </div>
             </div>
 
@@ -272,7 +332,7 @@ function Home() {
                 <div className={styles.c1r3}>
                   <div className={styles.c1r3CA}>CA: {import.meta.env.VITE_BASE_COIN_ADDRESS}</div>
                   <div className={styles.copyButtonContainer} onClick={() => {copyToClipboard(import.meta.env.VITE_BASE_COIN_ADDRESS)}}>
-                    <img src="cpyBtn.png" alt="" />
+                    <img src="/cpyBtn.png" alt="" />
                   </div>
                 </div>
 
@@ -289,13 +349,78 @@ function Home() {
               </div>
 
               <div className={styles.chartContainer}>
-                <Chart/>
+                <Chart coinAddress={import.meta.env.VITE_BASE_COIN_ADDRESS}/>
               </div>
             </div>
           </div>
 
 
+          {/* Actually section 5 */}
+          <div className={`${styles.sec3} ${styles.sec5}`} id="nautsArmy">
+            <div className={styles.sec3Bg}>
+              <div className={styles.sec3BgInner}>
+                <div className={styles.sec3BgFillImageContainer}>
+                  <img src="/hc5f.png" alt="" className={styles.fillImg}/>
+                </div>
+                <img src="/hc5s.png" alt="" />
+              </div>
+            </div>
+
+            <div className={styles.sec5Content}>
+              <div className={styles.sec5Text}>
+                <div className={styles.sec5Text1}>Nauts Army</div>
+                <div className={styles.sec5Text2}>
+                  Every Naut you see has floated through the endless void — some still exploring, waiting for their chance to join the <br/>
+                  fleet aboard Station Xeon. Others have already been Docked, locked in orbit and ready for the battles ahead.<br/>
+                  Each one carries a name, a mission... and a fate.<br/>
+                  But remember — only one will rise to become the true savior of the Cryptonauts.<br/>
+                </div>
+              </div>
+
+              <div className={styles.sec5ImageWrapper}>
+                {images.map((image, index) => (
+                  <div className={styles.sec5ImageContainer} key={index}>
+                    <ImageBox coinName={image.name}/>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Actually section 6 */}
+          <div className={`${styles.sec3} ${styles.sec6}`}>
+            <div className={styles.sec3Bg}>
+              <div className={styles.sec3BgInner}>
+                <div className={styles.sec3BgFillImageContainer}>
+                  <img src="/hc6f.png" alt="" className={styles.fillImg}/>
+                </div>
+                <img src="/hc6s.png" alt="" />
+              </div>
+            </div>
+
+            <div className={styles.sec6Content}>
+              <div className={styles.sec6header}>Docking a Naut on Solana</div>
+              <div className={styles.sec6text1}>
+                Find an Undocked Naut and visit its page.<br/>
+                Use the provided Token Details (<strong><u>Name, Ticker, Description, Image, Website</u></strong>) to launch the Naut on pump.fun — all info must match exactly.<br/><br/>
+
+                Your wallet must hold at least <strong>$50 worth of $Nauts tokens</strong>, and <strong>only one Naut</strong> can be deployed per wallet.
+                The first traveler to launch successfully, will automatically have their Naut & the CA linked to the Naut Army.
+              </div>
+
+              <div className={styles.sec6text2}>
+                <div className={styles.sec6text2Bar}></div>
+                <div className={styles.sec6text2Text}>
+                  Note 1: Nauts tokens listed here have no official affiliation with pump.fun or the Nauts.fun team. Always DYOR.<br/>
+                  Note 2: Every week, an average of 5 to 15 new Nauts are added. Stay tuned.
+                </div>
+              </div>
+            </div>
+          </div>
+
         </div>
+
+        <Footer/>
       </div>
     </BgAnimation>
   )

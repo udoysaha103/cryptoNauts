@@ -5,11 +5,11 @@ function Navbar() {
   return (
     <div className={styles.navWrapper}>
       <div className={styles.leftContent}>
-        <div><a href="">About Nauts</a></div>
+        <div><Link to="/#aboutNauts">About Nauts</Link></div>
 
         <div className={`${styles.rightButton} ${styles.linkButton}`}>
           <Link to="/lore" className={styles.bgButton}>
-            <img src="rightButtonBg.svg" alt="" />
+            <img src="/rightButtonBg.svg" alt="" />
             <p>Lore</p>
           </Link>
         </div>
@@ -28,27 +28,27 @@ function Navbar() {
       <div className={styles.rightContent}>
         {/* <div className={`${styles.rightButton} ${styles.linkButton}`}>
           <Link to="/lore" className={styles.bgButton}>
-            <img src="rightButtonBg.svg" alt="" />
+            <img src="/rightButtonBg.svg" alt="" />
             <p>Lore</p>
           </Link>
         </div> */}
 
         <div className={`${styles.rightButton} ${styles.linkButton}`}>
           <a href="" className={styles.bgButton}>
-            <img src="rightButtonBg.svg" alt="" />
+            <img src="/rightButtonBg.svg" alt="" />
             <p>Explore</p>
           </a>
         </div>
 
         <div className={styles.rightButton}>
           <a href="" className={styles.wbgButton}>
-            <img src="tg.svg" alt="Telegram" />
+            <img src="/tg.svg" alt="Telegram" />
           </a>
         </div>
 
         <div className={styles.rightButton}>
           <a href="" className={styles.wbgButton}>
-            <img src="x.svg" alt="X" />
+            <img src="/x.svg" alt="X" />
           </a>
         </div>
       </div>

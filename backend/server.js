@@ -145,6 +145,26 @@ app.get('/getRemainingCoins', (req, res) => {
 });
 
 
+app.get('/getDetails/:name', (req, res) => {
+    const { name } = req.params; // example data
+
+    // find the coin having name
+    nautsModel.findOne({ name: name })
+        .then((coin) => {
+            if (coin) {
+                res.json(coin);
+            } else {
+                console.log("Coin not found:", name);
+                res.status(404).json({ error: "Coin not found" });
+            }
+        })
+        .catch((error) => {
+            console.error("Error fetching coin details:", error);
+            res.status(500).json({ error: "Failed to fetch coin details" });
+        });
+});
+
+
 // const userRouter = require("./routes/users");
 // app.use("/user", userRouter);
 

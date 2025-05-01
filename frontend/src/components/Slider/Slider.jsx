@@ -7,7 +7,6 @@ import { useKeenSlider } from 'keen-slider/react';
 import 'keen-slider/keen-slider.min.css';
 
 const images = [
-  {name: "CryptoNaut"},
   {name: "WizardNaut"},
   {name: "KnightNaut"},
   {name: "BonkNaut"},
@@ -73,7 +72,7 @@ function Slider() {
       if (instanceRef.current) {
         instanceRef.current.next();
       }
-    }, 99993000); // Change slide every 3 seconds
+    }, 5000); // Change slide every 5 seconds
   
     return () => clearInterval(interval);
   });
@@ -90,14 +89,14 @@ function Slider() {
     <div className="roller-slider">
       <div className="slider-background">
         <div className="slider-background-inside">
-          <img src="hc2s.png" alt=""/>
-          <img src="hc2f.png" alt="" className="slider-background-inside-fill"/>
+          <img src="/hc2s.png" alt=""/>
+          <img src="/hc2f.png" alt="" className="slider-background-inside-fill"/>
         </div>
       </div>
       <div ref={sliderRef} className="keen-slider slider-content">
         {images.map((img, idx) => {
           const distanceFromCenter = Math.abs(currentSlide - idx);
-          const scale = distanceFromCenter === 0 ? 0.9 : (distanceFromCenter === 1 || distanceFromCenter === 40) ? 0.75 : (distanceFromCenter === 2 || distanceFromCenter === 39) ? 0.6 : 0.5;
+          const scale = distanceFromCenter === 0 ? 0.9 : (distanceFromCenter === 1 || distanceFromCenter === 39) ? 0.75 : (distanceFromCenter === 2 || distanceFromCenter === 38) ? 0.6 : 0.5;
 
           return (
             <div
@@ -110,11 +109,11 @@ function Slider() {
                 height :`${scale * 100}%`,
               }}>
                 <img
-                  src={`/${img.name}.png`}
+                  src={`/slider/${img.name}.png`}
                   alt={img.name}
                   className="slider-image"
                 />
-                <img src="hc2imageBorder.png" alt="" style={{height: "100%", width: "auto", position: "absolute"}}/>
+                {/* <img src="/hc2imageBorder.png" alt="" style={{height: "100%", width: "auto", position: "absolute"}}/> */}
               </div>
             </div>
           );
