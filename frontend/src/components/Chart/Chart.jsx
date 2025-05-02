@@ -20,10 +20,10 @@ const Chart = ({ coinAddress }) => {
     <div className={styles.chartWrapper}>
       <div className={styles.row}>
         <div className={styles.col1}>
-          Price USD <br /> <span>${chartData.priceUsd}</span>
+          Price USD <br /> <span>${chartData?.priceUsd}</span>
         </div>
         <div className={styles.col1}>
-          Price <br /> <span>{chartData.priceNative} SOL</span>
+          Price <br /> <span>{chartData?.priceNative} SOL</span>
         </div>
       </div>
       <div className={styles.row}>
@@ -31,10 +31,10 @@ const Chart = ({ coinAddress }) => {
           Liquidity <br /> <span>${formatPrice(chartData.liquidity?.usd)}</span>
         </div>
         <div className={styles.col2}>
-          FDV <br /> <span>${formatPrice(chartData.fdv)}</span>
+          FDV <br /> <span>${formatPrice(chartData?.fdv)}</span>
         </div>
         <div className={styles.col2}>
-          MKT Cap <br /> <span>${formatPrice(chartData.marketCap)}</span>
+          MKT Cap <br /> <span>${formatPrice(chartData?.marketCap)}</span>
         </div>
       </div>
       <div className={styles.details}>
@@ -48,10 +48,10 @@ const Chart = ({ coinAddress }) => {
             5M <br />
             <span
               className={
-                chartData.priceChange?.m5 > 0 ? styles.green : styles.red
+                chartData?.priceChange?.m5 > 0 ? styles.green : styles.red
               }
             >
-              {chartData.priceChange?.m5}%
+              {chartData?.priceChange?.m5}%
             </span>
           </div>
           <div

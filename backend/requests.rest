@@ -15,8 +15,8 @@ GET http://localhost:4000/getLastCreatedCoin
 
 ###
 
-POST https://api.nauts.fun/updateCoin/WizardNaut/1234
+POST https://api.nauts.fun/updateCoin/CryptoNaut/FnXhZYWWwyrcX67mts66QwXJb2oMUnZzHxpAAN2rpump
 
 ###
 
-GET http://localhost:4000/validateCoin/Artemis
+GET https://api.nauts.fun/validateCoin/PepeNaut
