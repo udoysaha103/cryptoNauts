@@ -130,7 +130,7 @@ function Profile() {
               <div className={styles.sec2_1}>
                 {coinData && coinData.contractAddress ?
                   <Chart coinAddress={coinData.contractAddress} /> :
-                  <div className={styles.sec2_1NoChart}>Undocked naut. <br/>Chart and CA TBA</div>
+                  <div className={styles.sec2_1NoChart}>Undocked naut. <br/>Details and CA TBA</div>
                 }
               </div>
 
