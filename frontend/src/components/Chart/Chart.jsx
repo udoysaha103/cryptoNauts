@@ -28,7 +28,7 @@ const Chart = ({ coinAddress }) => {
       </div>
       <div className={styles.row}>
         <div className={styles.col2}>
-          Liquidity <br /> <span>${formatPrice(chartData.liquidity?.usd)}</span>
+          Liquidity <br /> <span>${formatPrice(chartData?.liquidity?.usd)}</span>
         </div>
         <div className={styles.col2}>
           FDV <br /> <span>${formatPrice(chartData?.fdv)}</span>
