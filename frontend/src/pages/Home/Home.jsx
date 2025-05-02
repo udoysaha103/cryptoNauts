@@ -129,6 +129,7 @@ function Home() {
       try {
         const response = await fetch(apiUrl);
         const data = await response.json();
+        if(!data) return 0;
         return formatKMB(data[0].marketCap);
       } catch (error) {
         console.error("Error fetching coin data:", error);
