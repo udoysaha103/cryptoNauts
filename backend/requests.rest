@@ -15,4 +15,4 @@ GET http://localhost:4000/getLastCreatedCoin
 
 ###
 
-POST http://localhost:4000/updateCoin/WizardNaut/1234
+POST https://api.nauts.fun/updateCoin/WizardNaut/1234
