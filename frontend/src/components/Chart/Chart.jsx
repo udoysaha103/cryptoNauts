@@ -1,14 +1,27 @@
+import React, { useState, useEffect } from "react";
 import styles from "./Chart.module.css";
+import { formatPrice } from "../../utils/priceFormat";
 
-function Chart({ coinAddress }) {
+const Chart = ({ coinAddress }) => {
+  const [chartData, setChartData] = useState({});
+  const [currentDuration, setCurrentDuration] = useState("h24");
+  useEffect(() => {
+    (async () => {
+      const response = await fetch(
+        `https://api.dexscreener.com/latest/dex/search?q=${coinAddress}`
+      );
+      const data = await response.json();
+      setChartData(data.pairs[0]);
+    })();
+  }, []);
   return (
     <div className={styles.chartWrapper}>
       <div className={styles.row}>
         <div className={styles.col1}>
-          Price USD <br /> $0.002462
+          Price USD <br /> ${chartData.priceUsd}
         </div>
         <div className={styles.col1}>
-          Price <br /> 0.00001639 SOL
+          Price <br /> {chartData.priceNative} SOL
         </div>
       </div>
       <div className={styles.row}>
@@ -24,51 +37,93 @@ function Chart({ coinAddress }) {
       </div>
       <div className={styles.details}>
         <div className={styles.row}>
-          <div className={styles.col3}>
+          <div
+            className={`${styles.col3} ${
+              currentDuration === "m5" ? styles.selected : ""
+            }`}
+            onClick={() => setCurrentDuration("m5")}
+          >
             5M <br /> 10%
           </div>
-          <div className={styles.col3}>
+          <div
+            className={`${styles.col3} ${
+              currentDuration === "h1" ? styles.selected : ""
+            }`}
+            onClick={() => setCurrentDuration("h1")}
+          >
             1H <br /> 20%
           </div>
-          <div className={styles.col3}>
+          <div
+            className={`${styles.col3} ${
+              currentDuration === "h6" ? styles.selected : ""
+            }`}
+            onClick={() => setCurrentDuration("h6")}
+          >
             6H <br /> 30%
           </div>
-          <div className={styles.col3}>
+          <div
+            className={`${styles.col3} ${
+              currentDuration === "h24" ? styles.selected : ""
+            }`}
+            onClick={() => setCurrentDuration("h24")}
+          >
             24H <br /> 40%
           </div>
         </div>
-        <div className={styles.row}>
-          <div className={styles.col4}>
-            TXNS <br /> 10123
-          </div>
-          <div className={styles.col4}>
+        {(() => {
+          const buys = chartData.txns?.[currentDuration]?.buys;
+          const sells = chartData.txns?.[currentDuration]?.sells;
+          const ratio = 100 / (buys + sells);
+          const buyRatio = (buys + sells) === 0 ? 50 : (buys * ratio).toFixed(2);
+          return (
             <div className={styles.row}>
-              <div className={styles.col4left}>
-                Buys <br /> 5000
+              <div className={styles.col4}>
+                TXNS <br /> {buys + sells}
               </div>
-              <div className={styles.col4right}>
-                Sells <br /> 6000
+              <div className={styles.col4}>
+                <div className={styles.row}>
+                  <div className={styles.col4left}>
+                    Buys <br /> {buys}
+                  </div>
+                  <div className={styles.col4right}>
+                    Sells <br /> {sells}
+                  </div>
+                </div>
+                <div
+                  className={styles.bar}
+                  style={{
+                    background: `linear-gradient(to right, green ${buyRatio}%, red ${buyRatio}%)`,
+                  }}
+                />
               </div>
             </div>
-            <div className={styles.bar}/>
-          </div>
-        </div>
-        <div className={styles.row}>
-          <div className={styles.col4}>
-            Volume <br /> $1.8M
-          </div>
-          <div className={styles.col4}>
+          );
+        })()}
+        {(() => {
+          return (
             <div className={styles.row}>
-              <div className={styles.col4left}>
-                Buy Vol <br /> $953K
+              <div className={styles.col4}>
+                Volume <br /> $1.8M
               </div>
-              <div className={styles.col4right}>
-                Sell Vol <br /> $955K
+              <div className={styles.col4}>
+                <div className={styles.row}>
+                  <div className={styles.col4left}>
+                    Buy Vol <br /> $953K
+                  </div>
+                  <div className={styles.col4right}>
+                    Sell Vol <br /> $955K
+                  </div>
+                </div>
+                <div
+                  className={styles.bar}
+                  style={{
+                    background: `linear-gradient(to right, green 50%, red 50%)`,
+                  }}
+                />
               </div>
             </div>
-            <div className={styles.bar}/>
-          </div>
-        </div>
+          );
+        })()}
         <div className={styles.row}>
           <div className={styles.col4}>
             Makers <br /> 3010
@@ -82,12 +137,18 @@ function Chart({ coinAddress }) {
                 Sellers <br /> 2188
               </div>
             </div>
-            <div className={styles.bar}/>
+            <div
+              className={styles.bar}
+              style={{
+                background: `linear-gradient(to right, green 50%, red 50%)`,
+              }}
+            />
           </div>
         </div>
       </div>
+      <h4 className={styles.footer}>Powered by Dexscreener</h4>
     </div>
   );
-}
+};
 
 export default Chart;

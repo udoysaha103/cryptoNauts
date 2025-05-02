@@ -1,0 +1,73 @@
+{
+    "chainId": "solana",
+    "dexId": "pumpswap",
+    "url": "https://dexscreener.com/solana/clfhviibfmdz6yhdcfglohqj7fq5ddssyhbqrcbcwjez",
+    "pairAddress": "CLFHviiBfmdz6yHdcfgLohQj7fQ5ddssYHBqrCbcWJEz",
+    "baseToken": {
+        "address": "SWjRWeYMjv9akDkTRjexgGLhHTa2qeBNMEN3UW9pump",
+        "name": "ongodnocapbussinfr",
+        "symbol": "GENZ"
+    },
+    "quoteToken": {
+        "address": "So11111111111111111111111111111111111111112",
+        "name": "Wrapped SOL",
+        "symbol": "SOL"
+    },
+    "priceNative": "0.00002034",
+    "priceUsd": "0.003077",
+    "txns": {
+        "m5": {
+            "buys": 149,
+            "sells": 95
+        },
+        "h1": {
+            "buys": 1709,
+            "sells": 1543
+        },
+        "h6": {
+            "buys": 6777,
+            "sells": 6290
+        },
+        "h24": {
+            "buys": 38031,
+            "sells": 34008
+        }
+    },
+    "volume": {
+        "h24": 9480885.84,
+        "h6": 2321678.14,
+        "h1": 632235.01,
+        "m5": 32802.66
+    },
+    "priceChange": {
+        "m5": -4.14,
+        "h1": 44.04,
+        "h6": 88.11,
+        "h24": 4835
+    },
+    "liquidity": {
+        "usd": 220905.9,
+        "base": 35922226,
+        "quote": 729.7335
+    },
+    "fdv": 3077274,
+    "marketCap": 3077274,
+    "pairCreatedAt": 1746121115000,
+    "info": {
+        "imageUrl": "https://dd.dexscreener.com/ds-data/tokens/solana/SWjRWeYMjv9akDkTRjexgGLhHTa2qeBNMEN3UW9pump.png?key=7b54fb",
+        "header": "https://dd.dexscreener.com/ds-data/tokens/solana/SWjRWeYMjv9akDkTRjexgGLhHTa2qeBNMEN3UW9pump/header.png?key=7b54fb",
+        "openGraph": "https://cdn.dexscreener.com/token-images/og/solana/SWjRWeYMjv9akDkTRjexgGLhHTa2qeBNMEN3UW9pump?timestamp=1746203100000",
+        "websites": [
+            {
+                "label": "Website",
+                "url": "https://genzsolana.fun/"
+            }
+        ],
+        "socials": [
+            {
+                "type": "twitter",
+                "url": "https://x.com/i/communities/1917326990324985944"
+            }
+        ]
+    }
+}
