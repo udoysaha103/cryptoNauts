@@ -146,7 +146,7 @@ const Chart = ({ coinAddress }) => {
         <div className={`${styles.row} ${styles.age}`}>
           <div className={styles.col5}>Pair created</div>
           <div className={styles.col5}>
-            <span>{formatAge(chartData.pairCreatedAt)} ago</span>
+            <span>{formatAge(chartData?.pairCreatedAt)} ago</span>
           </div>
         </div>
       </div>
