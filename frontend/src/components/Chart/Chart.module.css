@@ -7,8 +7,7 @@
   border: 4px solid #00f2d8;
   border-radius: 2.5em;
   padding: 1.25em;
-
-  font-size: 1em;
+  font-size: 0.8vh;
 }
 .row::after {
   content: "";
@@ -27,6 +26,7 @@
   border-radius: 0.375em;
   margin: 0.3em;
   padding: 0.3em 0;
+  font-size: 0.8em;
 }
 .col2 {
   float: left;
@@ -37,6 +37,7 @@
   padding: 0.3em 0;
   border: 2px solid rgba(255, 255, 255, 0.16);
   border-radius: 0.375em;
+  font-size: 0.8em;
 }
 .details {
   border: 2px solid rgba(255, 255, 255, 0.16);
@@ -51,6 +52,7 @@
   border: 2px solid rgba(255, 255, 255, 0.16);
   cursor: pointer;
   padding: 0.3em 0;
+  font-size: 0.8em;
 }
 .col32 {
   float: left;
@@ -58,6 +60,7 @@
   text-align: center;
   border: 2px solid rgba(255, 255, 255, 0.16);
   padding: 0.3em 0;
+  font-size: 0.8em;
 }
 .col32 > small{
   font-size: 0.7em;
@@ -73,6 +76,7 @@
   text-align: center;
   text-transform: uppercase;
   margin: 0.3em 0;
+  font-size: 0.8em;
 }
 .col4:nth-child(2) {
   float: left;
@@ -81,6 +85,7 @@
   text-transform: uppercase;
   margin: 0.3em 0;
   padding: 0 1.25em;
+  font-size: 0.8em;
 }
 .col4left {
   float: left;
@@ -88,6 +93,7 @@
   text-align: center;
   text-transform: uppercase;
   text-wrap: nowrap;
+  font-size: 0.8em;
 }
 .col4right {
   float: right;
@@ -95,30 +101,36 @@
   text-align: center;
   text-transform: uppercase;
   text-wrap: nowrap;
+  font-size: 0.8em;
 }
 .col5{
   float: left;
   width: 50%;
   text-align: center;
   margin: 0.3em 0;
+  font-size: 0.8em;
 }
 .age{
   text-align: center;
   border-top: 2px solid rgba(255, 255, 255, 0.16);
   padding-top: 0.625em;
+  font-size: 0.8em;
 }
 .bar {
   width: 100%;
   height: 4px;
   border-radius: 2px;
-  /* background: linear-gradient(to right, green 60%, red 40%); */
 }
 .footer {
   text-align: center;
+  font-size: 2em;
 }
 .green {
   color: #a4cf5e;
 }
 .red{
   color: #f45b5b;
+}
+span{
+  font-size: 0.8em;
 }
