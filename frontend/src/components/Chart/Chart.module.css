@@ -13,6 +13,9 @@
   display: table;
   clear: both;
 }
+.row{
+  padding-bottom: 10px;
+}
 .col1 {
   float: left;
   width: calc(50% - 10px);
@@ -37,7 +40,6 @@
   border: 2px solid rgba(255, 255, 255, 0.16);
   border-radius: 0.375em;
   margin: 5px;
-  padding-bottom: 10px;
 }
 .col3 {
   float: left;
@@ -47,6 +49,17 @@
   border: 2px solid rgba(255, 255, 255, 0.16);
   cursor: pointer;
   padding: 5px 0;
+}
+.col32 {
+  float: left;
+  width: 25%;
+  text-align: center;
+  border: 2px solid rgba(255, 255, 255, 0.16);
+  padding: 5px 0;
+}
+.col32 > small{
+  font-size: 0.7em;
+  color: rgba(255, 255, 255, 0.5);
 }
 .col3:hover,
 .selected {
@@ -72,7 +85,6 @@
   width: 25%;
   text-align: center;
   text-transform: uppercase;
-  margin: 5px 0;
   text-wrap: nowrap;
 }
 .col4right {
@@ -80,15 +92,31 @@
   width: 25%;
   text-align: center;
   text-transform: uppercase;
-  margin: 5px 0;
   text-wrap: nowrap;
+}
+.col5{
+  float: left;
+  width: 50%;
+  text-align: center;
+  margin: 5px 0;
+}
+.age{
+  text-align: center;
+  border-top: 2px solid rgba(255, 255, 255, 0.16);
+  padding-top: 10px;
 }
 .bar {
   width: 100%;
   height: 4px;
+  border-radius: 2px;
   /* background: linear-gradient(to right, green 60%, red 40%); */
 }
 .footer {
-    margin-top: 20px;
   text-align: center;
+}
+.green {
+  color: #a4cf5e;
+}
+.red{
+  color: #f45b5b;
 }

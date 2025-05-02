@@ -19,4 +19,4 @@ POST https://api.nauts.fun/updateCoin/WizardNaut/1234
 
 ###
 
-GET http://localhost:4000/validateCoin/:ticker
+GET http://localhost:4000/validateCoin/Artemis
