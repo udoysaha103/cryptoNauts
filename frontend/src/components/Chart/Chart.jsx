@@ -102,16 +102,16 @@ const Chart = ({ coinAddress }) => {
         </div>
         <div className={styles.row}>
           <div className={styles.col32}>
-              Vol <small>(5M)</small><br/>{formatPrice(chartData.volume?.m5)}
+              Vol <small>(5M)</small><br/>{formatPrice(chartData?.volume?.m5)}
           </div>
           <div className={styles.col32}>
-              Vol <small>(1H)</small><br/>{formatPrice(chartData.volume?.h1)}
+              Vol <small>(1H)</small><br/>{formatPrice(chartData?.volume?.h1)}
           </div>
           <div className={styles.col32}>
-              Vol <small>(6H)</small><br/>{formatPrice(chartData.volume?.h6)}
+              Vol <small>(6H)</small><br/>{formatPrice(chartData?.volume?.h6)}
           </div>
           <div className={styles.col32}>
-              Vol <small>(24H)</small><br/>{formatPrice(chartData.volume?.h24)}
+              Vol <small>(24H)</small><br/>{formatPrice(chartData?.volume?.h24)}
           </div>
         </div>
         {(() => {
