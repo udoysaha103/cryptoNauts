@@ -101,7 +101,7 @@ function Profile() {
                 <div className={styles.c1r4}>
                   <a className={styles.c1r4btn} href={coinData && coinData.contractAddress ? `https://dexscreener.com/solana/${coinData.contractAddress}` : "#"} target={coinData && coinData.contractAddress ? "_blank" : ""}>
                     <img src="/hc1btn.png" alt="" />
-                    <span>Buy ${coinName}</span>
+                    <span>Buy ${coinData.ticker}</span>
                   </a>
 
                   <a className={styles.c1r4btn} style={{marginLeft: "5%"}}>
@@ -150,7 +150,7 @@ function Profile() {
                 <div className={styles.c1r4} style={{justifyContent: "space-between"}}>
                   <a className={`${styles.c1r4btn} ${styles.c1r4btn2}`} href={coinData && coinData.contractAddress ? `https://dexscreener.com/solana/${coinData.contractAddress}` : "#"} target={coinData && coinData.contractAddress ? "_blank" : ""}>
                     <img src="/hc1btn.png" alt="" />
-                    <span>Buy ${coinName}</span>
+                    <span>Buy ${coinData.ticker}</span>
                   </a>
 
                   <div className={styles.sec2_2Socials}>
