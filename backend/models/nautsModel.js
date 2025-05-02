@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const nautSchema = new mongoose.Schema({
     name: { type: String, required: true },
-    ticker: { type: String, required: true },
+    ticker: { type: String, required: true, unique: true },
     rank: { type: String, required: true },
     rankDesc: { type: String, required: true },
     desc: { type: String, required: true },

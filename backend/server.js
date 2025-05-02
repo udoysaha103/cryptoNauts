@@ -87,10 +87,10 @@ app.post("/createCoin", (req, res) => {
 app.post("/updateCoin/:name/:CA", (req, res) => {
     const { name, CA } = req.params; // example data
     
-    // update the coin having name with the CA
+    // update the coin having name with the CA 
     nautsModel.findOneAndUpdate(
         { name: name },
-        { contractAddress: CA },
+        { contractAddress: CA, updatedAt: new Date() }, // Update contractAddress and updatedAt
         { new: true } // Return the updated document
     )
     .then((updatedCoin) => {

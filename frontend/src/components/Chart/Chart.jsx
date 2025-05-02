@@ -9,7 +9,7 @@ function Chart({coinAddress}) {
             title="Dexscreener Trading Chart"
             width="500"
             height="400"
-            src={`https://www.dexscreener.com/widget-chart/en/solana/pe-light/0x${coinAddress}?theme=dark&chartType=1&chartResolution=30&drawingToolbars=true`}
+            src={`https://gmgn.ai/`}
             frameBorder="0"
             allowFullScreen >
         </iframe>

@@ -2,11 +2,11 @@ POST http://localhost:4000/createCoin
 Content-Type: application/json
 
 {
-    "name": "PepeNaut",
-    "ticker": "PepeNaut",
-    "rank": "Cosmic Legend",
-    "rankDesc": "The stuff of interstellar legend—peerless Nauts whose exploits transcend the known universe, heroes whose daring adventures inspire generations and whose names become timeless myths.",
-    "desc": "Meme incarnate. Sentient irony. Born from the laughter fields of SOL-320B, PepeNaut exists in a state of sublime awareness — a balance of joy and melancholy, past and present. He leads not through command, but through resonance. Crews follow him without question, drawn by a force even the crypto-elders struggle to define. In moments of crisis, when tension cracks and the stars seem to sigh, he simply shrugs and says, \"Feels like fate, man.\" None can tell if he's joking… or prophesying."
+    "name": "WizardNaut",
+    "ticker": "WizardNaut",
+    "rank": "Quantum Admiral",
+    "rankDesc": "Respected leaders who command Naut crews across uncharted star systems, making first contact, charting unknown constellations, and safeguarding the Solana territories.",
+    "desc": "Wielder of the Sword of Code, a relic forged in the tectonic vaults of SOL-320B. KnightNaut is loyal to the original Naut Order — protector of the weak and hunter of the corrupted. His path is perilous, for many believe he may one day face a terrible truth: a former comrade turned Void-bound traitor."
 }
 ###
 
@@ -15,4 +15,4 @@ GET http://localhost:4000/getLastCreatedCoin
 
 ###
 
-POST http://localhost:4000/updateCoin/PepeNaut/demoAddress
+POST http://localhost:4000/updateCoin/WizardNaut/1234

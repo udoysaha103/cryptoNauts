@@ -71,24 +71,24 @@
 .sec1Content{
     width: 100%;
     height: 100%;
-    padding: 3% 10%;
+    padding: 3% 5%;
     position: absolute;
 
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 5vh;
+    gap: 3vh;
 }
 .sec1Content > img {
     margin-top: 3vh;
-    margin-right: 5vw;
+    margin-right: 3vw;
     width: 30%;
     border: 0.61em solid #00F2D8;
     border-radius: 15%;
 }
 
 .sec1ContentRight{
-    width: 50%;
+    width: 70%;
     height: 100%;
 
     display: flex;
@@ -140,7 +140,7 @@
 }
 
 .c1r4btn{
-    width: 35%;
+    width: 25%;
     cursor: pointer;
     display: flex;
     justify-content: center;
@@ -162,20 +162,29 @@
     transition: all 0.2s ease-in-out;
 }
 
+.c1r4btn2{
+    width: 30%;
+}
+
 .sec2_1{
-    width: 48%;
+    width: 40%;
     height: 100%;
+    margin-right: 5%;
 }
 
 .sec2_1NoChart{
     width: 100%;
     height: 100%;
-    padding: 45% 10%;
+    
     background-color: black;
     border: 4px solid #00F2D8;
     border-radius: 40px;
 
     font-size: 1.5em;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .sec2_2{
@@ -197,7 +206,7 @@
 }
 
 .sec2_2Socials a{
-    width: 35%;
+    width: 30%;
     border: 1px solid white;
     border-radius: 10%;
 

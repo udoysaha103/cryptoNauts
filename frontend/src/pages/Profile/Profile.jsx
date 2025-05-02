@@ -130,7 +130,7 @@ function Profile() {
               <div className={styles.sec2_1}>
                 {coinData && coinData.contractAddress ?
                   <Chart coinAddress={coinData.contractAddress} /> :
-                  <div className={styles.sec2_1NoChart}>Chart From DexScreener</div>
+                  <div className={styles.sec2_1NoChart}>Undocked naut. <br/>Chart and CA TBA</div>
                 }
               </div>
 
@@ -148,7 +148,7 @@ function Profile() {
                 </div>
 
                 <div className={styles.c1r4} style={{justifyContent: "space-between"}}>
-                  <a className={styles.c1r4btn} href={coinData && coinData.contractAddress ? `https://dexscreener.com/solana/${coinData.contractAddress}` : "#"} target={coinData && coinData.contractAddress ? "_blank" : ""}>
+                  <a className={`${styles.c1r4btn} ${styles.c1r4btn2}`} href={coinData && coinData.contractAddress ? `https://dexscreener.com/solana/${coinData.contractAddress}` : "#"} target={coinData && coinData.contractAddress ? "_blank" : ""}>
                     <img src="/hc1btn.png" alt="" />
                     <span>Buy ${coinName}</span>
                   </a>

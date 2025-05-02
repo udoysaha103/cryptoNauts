@@ -93,6 +93,7 @@ function Slider() {
           <img src="/hc2f.png" alt="" className="slider-background-inside-fill"/>
         </div>
       </div>
+
       <div ref={sliderRef} className="keen-slider slider-content">
         {images.map((img, idx) => {
           const distanceFromCenter = Math.abs(currentSlide - idx);
