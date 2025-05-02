@@ -2,12 +2,23 @@ require("dotenv").config();
 
 const express = require("express");
 const cors = require("cors");
+const axios = require("axios");
 
 const http = require("http");
 const { Server } = require("socket.io");
 
 const mongoose = require("mongoose");
 const nautsModel = require("./models/nautsModel"); // Import your model
+
+const { Connection, PublicKey, clusterApiUrl } = require('@solana/web3.js');
+const { getParsedTokenAccountsByOwner, TOKEN_PROGRAM_ID } = require('@solana/spl-token');
+// Initialize connection to the Solana mainnet
+// const connection = new Connection('https://api.mainnet-beta.solana.com', {
+//   commitment: 'confirmed',
+//   maxSupportedTransactionVersion: 0,
+// });
+const connection = new Connection(clusterApiUrl('mainnet-beta'), 'confirmed');
+
 
 const app = express();
 
@@ -162,6 +173,151 @@ app.get('/getDetails/:name', (req, res) => {
             console.error("Error fetching coin details:", error);
             res.status(500).json({ error: "Failed to fetch coin details" });
         });
+});
+
+
+app.get('/validateCoin/:ticker', async (req, res) => {
+    const { ticker } = req.params; // example data
+    const MIN_USD_VALUE = 50;
+
+    async function getTokensByTicker(ticker) {
+        const res = await axios.get(`https://api.dexscreener.com/latest/dex/search?q=${ticker}`);
+        const solanaTokens = res.data.pairs.filter(pair => pair.chainId === 'solana');
+        return solanaTokens;
+    }
+
+
+    async function getMintCreationDetails(mintAddress) {
+        try {
+          const mintPubkey = new PublicKey(mintAddress);
+          
+          
+          // Fetch signatures associated with the mint address
+          const signatures = await connection.getSignaturesForAddress(mintPubkey, { limit: 10 });
+          
+          if (signatures.length === 0) {
+            console.log(`No transactions found for mint: ${mintAddress}`);
+            return null;
+          }
+      
+          // Assume the earliest transaction is the creation transaction
+          const creationSignature = signatures[signatures.length - 1].signature;
+          
+          // Fetch the transaction details
+          const tx = await connection.getTransaction(creationSignature, {
+            maxSupportedTransactionVersion: 0,
+          });
+      
+          if (!tx) {
+            console.log(`Transaction not found for signature: ${creationSignature}`);
+            return null;
+          }
+      
+          // Extract the block time and fee payer (assumed to be the developer wallet)
+          const creationTime = tx.blockTime ? new Date(tx.blockTime * 1000).toISOString() : 'Unknown';
+          const devWallet = tx.transaction.message.accountKeys[0].toBase58();
+      
+          return devWallet;
+        } catch (error) {
+          console.error(`Error processing mint ${mintAddress}:`, error.message);
+          return null;
+        }
+    }
+
+
+    async function getNautsTokenBalance(walletAddress, nautsMintAddress = process.env.BASE_COIN_ADDRESS) {
+        try {
+          const ownerPublicKey = new PublicKey(walletAddress);
+          const mintPublicKey = new PublicKey(nautsMintAddress);
+      
+          const tokenAccounts = await connection.getParsedTokenAccountsByOwner(ownerPublicKey, {
+            mint: mintPublicKey,
+          });
+      
+          if (tokenAccounts.value.length === 0) return 0;
+      
+          const tokenAmount = tokenAccounts.value[0].account.data.parsed.info.tokenAmount;
+          return parseFloat(tokenAmount.uiAmountString);
+        } catch (error) {
+          console.error(`Error fetching Nauts balance for wallet ${walletAddress}:`, error.message);
+          return 0;
+        }
+    }
+
+
+    async function getTokenPriceUSD(tokenMintAddress) {
+        try {
+          // Search for the token using its mint address
+          const response = await axios.get(`https://api.dexscreener.com/latest/dex/search?q=${tokenMintAddress}`);
+          const pairs = response.data.pairs;
+      
+          if (!pairs || pairs.length === 0) {
+            console.warn(`No trading pairs found for token address: ${tokenMintAddress}`);
+            return null;
+          }
+      
+          // Filter pairs on the Solana chain
+          const solanaPairs = pairs.filter(pair => pair.chainId === 'solana');
+      
+          if (solanaPairs.length === 0) {
+            console.warn(`No Solana trading pairs found for token address: ${tokenMintAddress}`);
+            return null;
+          }
+      
+          // Select the first pair (you can implement additional logic to choose the most relevant pair)
+          const selectedPair = solanaPairs[0];
+      
+          // Extract the USD price
+          const priceUsd = parseFloat(selectedPair.priceUsd);
+      
+          return priceUsd;
+        } catch (error) {
+          console.error(`Error fetching price for token address ${tokenMintAddress}:`, error.message);
+          return null;
+        }
+      }
+
+
+    try{
+        // Fetch the Nauts token price in USD
+        const NAUTS_PRICE_USD = await getTokenPriceUSD(process.env.BASE_COIN_ADDRESS);
+        // console.log('Nauts token price in USD:', NAUTS_PRICE_USD);
+        if (!NAUTS_PRICE_USD) {
+            console.error('Failed to fetch Nauts token price.');
+            return res.status(500).json({ error: 'Failed to fetch Nauts token price.' });
+        }
+
+        const tokens = await getTokensByTicker(ticker);
+
+        // sort the tokens by pairCreatedAt in ascending order
+        tokens.sort((a, b) => a.pairCreatedAt - b.pairCreatedAt);
+
+        // get the dev wallet for one token at a time, find its holdings and then find if the dev wallet holds Nauts token and how much, if they have 50$ of Nauts token, then return that contract address or check the next dev wallet
+        for (let i = 0; i < tokens.length; i++) {
+            const token = tokens[i];
+            const mintAddress = token.baseToken.address; // Assuming baseToken is the mint address
+            const devWallet = await getMintCreationDetails(mintAddress);
+
+            if (!devWallet) {
+                console.log(`No dev wallet found for mint ${mintAddress}`);
+                continue; // Skip to the next token if no dev wallet is found
+            }
+            
+            const nautsBalance = await getNautsTokenBalance(devWallet);
+            const nautsValue = nautsBalance * NAUTS_PRICE_USD;
+
+            if (nautsValue >= MIN_USD_VALUE) {
+                console.log(`Dev wallet ${devWallet} holds ${nautsBalance} Nauts tokens worth $${nautsValue}`);
+                return res.json({ status: "Valid", contractAddress: token.contractAddress });
+            }
+        }
+        
+        res.json(tokens);
+    }
+    catch (error) {
+        console.error("Error fetching tokens:", error);
+        res.status(500).json({ error: "Failed to fetch tokens" });
+    }
 });
 
 

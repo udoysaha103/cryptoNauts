@@ -16,3 +16,7 @@ GET http://localhost:4000/getLastCreatedCoin
 ###
 
 POST http://localhost:4000/updateCoin/WizardNaut/1234
+
+###
+
+GET http://localhost:4000/validateCoin/Shiloh

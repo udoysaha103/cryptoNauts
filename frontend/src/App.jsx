@@ -19,6 +19,7 @@ function App() {
 
   useEffect(() => {
     notificationSound.current = new Audio('/Noti Sound Sci-fi.wav');
+    notificationSound.current.volume = 0.2; // Set volume to 50%
     notificationSound.current.load();
 
     // Unlock audio playback on user interaction
@@ -62,7 +63,7 @@ function App() {
           />
           <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
             <strong style={{fontSize: "1.25em", fontWeight: "bolder", wordWrap: "nowrap"}}>${data.message}</strong>
-            <div style={{fontSize: "1em", fontWeight: 500, marginTop: "0.2vh"}}>has Docked</div>
+            <div style={{fontSize: "1em", fontWeight: 500, marginTop: "0.2vh", width: "fit-content"}}>has Docked</div>
           </div>
         </div>,
         { icon: false }
