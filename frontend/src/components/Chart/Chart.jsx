@@ -63,10 +63,10 @@ const Chart = ({ coinAddress }) => {
             1H <br />
             <span
               className={
-                chartData.priceChange?.h1 > 0 ? styles.green : styles.red
+                chartData?.priceChange?.h1 > 0 ? styles.green : styles.red
               }
             >
-              {chartData.priceChange?.h1}%
+              {chartData?.priceChange?.h1}%
             </span>
           </div>
           <div
@@ -78,10 +78,10 @@ const Chart = ({ coinAddress }) => {
             6H <br />
             <span
               className={
-                chartData.priceChange?.h6 > 0 ? styles.green : styles.red
+                chartData?.priceChange?.h6 > 0 ? styles.green : styles.red
               }
             >
-              {chartData.priceChange?.h6}%
+              {chartData?.priceChange?.h6}%
             </span>
           </div>
           <div
@@ -93,10 +93,10 @@ const Chart = ({ coinAddress }) => {
             24H <br />
             <span
               className={
-                chartData.priceChange?.h24 > 0 ? styles.green : styles.red
+                chartData?.priceChange?.h24 > 0 ? styles.green : styles.red
               }
             >
-              {chartData.priceChange?.h24}%
+              {chartData?.priceChange?.h24}%
             </span>
           </div>
         </div>
