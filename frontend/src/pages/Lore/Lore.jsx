@@ -28,7 +28,7 @@ function Lore() {
             Amidst the chaos, the NAUTS rise,  <br/>
             warriors born of stardust and encrypted dreams.  <br/>
             Some stand as guardians: the fierce BullNaut,  <br/>
-            the elusive SatoshiNaut, the vengeful Batnaut. <br/> 
+            the elusive SatoshNaut, the vengeful Batnaut. <br/> 
             Others teeter dangerously on the edge,  <br/>
             tempted by XEROS' whispers of ultimate power.<br/><br/>
             Each week, new NAUTS awaken.  <br/>

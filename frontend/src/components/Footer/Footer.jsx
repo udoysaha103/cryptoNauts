@@ -39,9 +39,9 @@ function Footer() {
                 <div className={`${styles.col2} ${styles.col3}`}>
                     <div className={styles.header}>$Nauts Token</div>
 
-                    <a href="#" className={`${styles.linkElement} ${styles.text}`}>Pump.fun</a>
-                    <a href="#" className={`${styles.linkElement} ${styles.text}`}>PumpSwap</a>
-                    <a href="#" className={`${styles.linkElement} ${styles.text}`}>DEX Screener</a>
+                    <a href={`https://pump.fun/coin/${import.meta.env.VITE_BASE_COIN_ADDRESS}`} className={`${styles.linkElement} ${styles.text}`} target='_blank'>Pump.fun</a>
+                    <a href={`https://swap.pump.fun/?input=So11111111111111111111111111111111111111112&output=${import.meta.env.VITE_BASE_COIN_ADDRESS}`} className={`${styles.linkElement} ${styles.text}`} target='_blank'>PumpSwap</a>
+                    <a href={`https://dexscreener.com/solana/${import.meta.env.VITE_BASE_COIN_ADDRESS}`} className={`${styles.linkElement} ${styles.text}`} target='_blank'>DEX Screener</a>
                     <a href="#" className={`${styles.linkElement} ${styles.text}`}>Coinmarketcap</a>
                     <a href="#" className={`${styles.linkElement} ${styles.text}`}>CoinGecko</a>
                 </div>

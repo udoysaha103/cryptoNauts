@@ -33,16 +33,16 @@ function Navbar() {
           </Link>
         </div> */}
 
-        <div className={`${styles.rightButton} ${styles.linkButton}`}>
+        <div className={`${styles.rightButton} ${styles.linkButton}`} style={{ marginRight: '1vw' }}>
           <Link to={`/#nautsArmy`} className={styles.bgButton}>
-            <img src="/rightButtonBg.svg" alt="" />
+            <img src="/rightButtonBg.svg" alt="" className={styles.largeButton}/>
             <p>Explore</p>
           </Link>
         </div>
 
         <div className={styles.rightButton}>
           <a href="" className={styles.wbgButton}>
-            <img src="/tg.svg" alt="Telegram" />
+            <img src="/tg.svg" alt="Telegram"/>
           </a>
         </div>
 
