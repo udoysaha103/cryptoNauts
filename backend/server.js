@@ -310,6 +310,9 @@ app.get('/validateCoin/:ticker', async (req, res) => {
                 console.log(`Dev wallet ${devWallet} holds ${nautsBalance} Nauts tokens worth $${nautsValue}`);
                 return res.json({ status: "Valid", contractAddress: token.contractAddress });
             }
+
+            // wait for 10 seconds before checking the next token
+            await new Promise(resolve => setTimeout(resolve, 10000));
         }
         
         res.json(tokens);

@@ -2,11 +2,11 @@ POST http://localhost:4000/createCoin
 Content-Type: application/json
 
 {
-    "name": "WizardNaut",
-    "ticker": "WizardNaut",
-    "rank": "Quantum Admiral",
-    "rankDesc": "Respected leaders who command Naut crews across uncharted star systems, making first contact, charting unknown constellations, and safeguarding the Solana territories.",
-    "desc": "Wielder of the Sword of Code, a relic forged in the tectonic vaults of SOL-320B. KnightNaut is loyal to the original Naut Order — protector of the weak and hunter of the corrupted. His path is perilous, for many believe he may one day face a terrible truth: a former comrade turned Void-bound traitor."
+    "name": "DarkNaut",
+    "ticker": "DarkNaut",
+    "rank": "Nebula Commander",
+    "rankDesc": "Elite Nauts renowned for leading complex missions into mysterious nebulae and confronting unknown cosmic phenomena—unlocking secrets that alter the fate of galaxies.",
+    "desc": "He doesn’t need superpowers. He is the power. Operating from the shadowy void decks of Station Xeon, DarkNaut is a myth wrapped in quantum armor — the lone protector who answers no call but justice. His mind is a weapon. His fists, silent verdicts. His ship? Never seen, only felt… in fear. When questioned, his voice echoes through the darkest corners of the fleet: “It’s not who I am underneath, but what I do that defines me.” They call him paranoid. They call him obsessed. But when rogue Nauts vanish and Void agents fall without a trace… they also call him the last line."
 }
 ###
 

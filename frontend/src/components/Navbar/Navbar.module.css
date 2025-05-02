@@ -86,11 +86,15 @@
 }
 
 .bgButton p{
-    margin-bottom: 0.05vh;
+    margin-bottom: 0.3vh;
 }
 
 .linkButton{
     width: 30%;
+}
+
+.largeButton{
+    transform: scaleX(1.1);
 }
 
 .wbgButton{
@@ -101,7 +105,10 @@
     align-items: center;
     justify-content: center;
 }
+.wbgButton img{
+    transform: scale(1.35);
+}
 .wbgButton:hover{
-    transform: scale(1.25);
+    transform: scale(1.15);
     transition: transform 0.2s ease-in-out;
 }

@@ -165,6 +165,9 @@
 .c1r4btn2{
     width: 30%;
 }
+.c1r4btn2> img{
+    transform: scaleX(1.2);
+}
 
 .sec2_1{
     width: 40%;
@@ -199,7 +202,7 @@
 }
 
 .sec2_2Socials{
-    width: 35%;
+    width: 30%;
     display: flex;
     justify-content: space-between;
     align-items: center;

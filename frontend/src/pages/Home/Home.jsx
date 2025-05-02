@@ -39,12 +39,12 @@ const images = [
   {name: "AlienNaut"},
   {name: "TrumpNaut"},
   {name: "ElonNaut"},
-  {name: "SatoshiNaut"},
+  {name: "SatoshNaut"},
   {name: "GokuNaut"},
   {name: "WojakNaut"},
   {name: "PengiNaut"},
-  {name: "InvisibleNaut"},
-  {name: "NeilArmNaut"},
+  {name: "MistNaut"},
+  {name: "NeilNaut"},
   {name: "ChadNaut"},
   {name: "PandaNaut"},
   {name: "DogeNaut"},
@@ -340,11 +340,11 @@ function Home() {
 
                 <div className={styles.sec4ContentText1_3}>
                   <span>Buy $Nauts from:</span>
-                  <a href={import.meta.env.VITE_LINK1} target="_blank"><img src="./link1.png" alt="" /></a>
-                  <a href={import.meta.env.VITE_LINK2} target="_blank"><img src="./link2.png" alt="" /></a>
-                  <a href={import.meta.env.VITE_LINK3} target="_blank"><img src="./link3.png" alt="" /></a>
-                  <a href={import.meta.env.VITE_LINK4} target="_blank"><img src="./link4.png" alt="" /></a>
-                  <a href={import.meta.env.VITE_LINK5} target="_blank"><img src="./link5.png" alt="" /></a>
+                  <a href={`https://pump.fun/coin/${import.meta.env.VITE_BASE_COIN_ADDRESS}`} target="_blank"><img src="./link1.png" alt="" /></a>
+                  <a href={`https://dexscreener.com/solana/${import.meta.env.VITE_BASE_COIN_ADDRESS}`} target="_blank"><img src="./link2.png" alt="" /></a>
+                  <a href={`https://neo.bullx.io/terminal?chainId=1399811149&address=${import.meta.env.VITE_BASE_COIN_ADDRESS}`} target="_blank"><img src="./link3.png" alt="" /></a>
+                  <a href={`https://photon-sol.tinyastro.io/en/lp/(CA)${import.meta.env.VITE_BASE_COIN_ADDRESS}?handle=279297785fc12ea6a3a907`} target="_blank"><img src="./link4.png" alt="" /></a>
+                  <a href={`https://axiom.trade/t/${import.meta.env.VITE_BASE_COIN_ADDRESS}/`} target="_blank"><img src="./link5.png" alt="" /></a>
                 </div>
               </div>
 
