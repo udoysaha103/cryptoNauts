@@ -287,7 +287,11 @@ app.get('/validateCoin/:ticker', async (req, res) => {
             return res.status(500).json({ error: 'Failed to fetch Nauts token price.' });
         }
 
+        await new Promise(resolve => setTimeout(resolve, 1000));
+
         const tokens = await getTokensByTicker(ticker);
+
+        await new Promise(resolve => setTimeout(resolve, 1000));
 
         // sort the tokens by pairCreatedAt in ascending order
         tokens.sort((a, b) => a.pairCreatedAt - b.pairCreatedAt);
@@ -315,7 +319,8 @@ app.get('/validateCoin/:ticker', async (req, res) => {
             await new Promise(resolve => setTimeout(resolve, 10000));
         }
         
-        res.json(tokens);
+        const contractAddresses = tokens.map(token => token.baseToken.address);
+        res.json(contractAddresses);
     }
     catch (error) {
         console.error("Error fetching tokens:", error);

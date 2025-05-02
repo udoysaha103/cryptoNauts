@@ -226,6 +226,14 @@
 .copyButtonContainer img{
     height: 1.15em;
 }
+.copyButtonContainer img:active{
+    transform: scale(0.85);
+    transition: all 0.2s ease-in-out;
+}
+.copyButtonContainer:hover{
+    transform: scale(1.15);
+    transition: all 0.2s ease-in-out;
+}
 
 .c1r4{
     width: 100%;
