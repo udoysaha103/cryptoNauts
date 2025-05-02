@@ -178,6 +178,9 @@
 }
 
 .sec2_1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 40%;
     height: 100%;
     margin-right: 5%;
