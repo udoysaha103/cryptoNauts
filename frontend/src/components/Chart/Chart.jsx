@@ -115,8 +115,8 @@ const Chart = ({ coinAddress }) => {
           </div>
         </div>
         {(() => {
-          const buys = chartData.txns?.[currentDuration]?.buys;
-          const sells = chartData.txns?.[currentDuration]?.sells;
+          const buys = chartData?.txns?.[currentDuration]?.buys;
+          const sells = chartData?.txns?.[currentDuration]?.sells;
           const ratio = 100 / (buys + sells);
           const buyRatio = buys + sells === 0 ? 50 : (buys * ratio).toFixed(2);
           return (
