@@ -154,8 +154,8 @@ function Profile() {
                   </a>
 
                   <div className={styles.sec2_2Socials}>
-                    <a href="#" target={coinData && coinData.contractAddress ? "_blank" : ""}><img src="/tg.svg" alt="" /></a>
-                    <a href="#" target={coinData && coinData.contractAddress ? "_blank" : ""}><img src="/x.svg" alt="" /></a>
+                    <a href={import.meta.env.VITE_TG} target={"_blank"}><img src="/tg.svg" alt="" /></a>
+                    <a href={import.meta.env.VITE_X} target={"_blank"}><img src="/x.svg" alt="" /></a>
                   </div>
                 </div>
               </div>
