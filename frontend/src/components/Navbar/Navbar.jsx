@@ -41,13 +41,13 @@ function Navbar() {
         </div>
 
         <div className={styles.rightButton}>
-          <a href="" className={styles.wbgButton}>
+          <a href={import.meta.env.VITE_TG} target="_blank" className={styles.wbgButton}>
             <img src="/tg.svg" alt="Telegram"/>
           </a>
         </div>
 
         <div className={styles.rightButton}>
-          <a href="" className={styles.wbgButton}>
+          <a href={import.meta.env.VITE_X} target="_blank" className={styles.wbgButton}>
             <img src="/x.svg" alt="X" />
           </a>
         </div>

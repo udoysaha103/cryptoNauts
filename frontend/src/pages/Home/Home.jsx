@@ -344,7 +344,7 @@ function Home() {
                   <a href={`https://pump.fun/coin/${import.meta.env.VITE_BASE_COIN_ADDRESS}`} target="_blank"><img src="./link1.png" alt="" /></a>
                   <a href={`https://dexscreener.com/solana/${import.meta.env.VITE_BASE_COIN_ADDRESS}`} target="_blank"><img src="./link2.png" alt="" /></a>
                   <a href={`https://neo.bullx.io/terminal?chainId=1399811149&address=${import.meta.env.VITE_BASE_COIN_ADDRESS}`} target="_blank"><img src="./link3.png" alt="" /></a>
-                  <a href={`https://photon-sol.tinyastro.io/en/lp/(CA)${import.meta.env.VITE_BASE_COIN_ADDRESS}?handle=279297785fc12ea6a3a907`} target="_blank"><img src="./link4.png" alt="" /></a>
+                  <a href={`https://photon-sol.tinyastro.io/en/lp/${import.meta.env.VITE_BASE_COIN_ADDRESS}?handle=279297785fc12ea6a3a907`} target="_blank"><img src="./link4.png" alt="" /></a>
                   <a href={`https://axiom.trade/t/${import.meta.env.VITE_BASE_COIN_ADDRESS}/`} target="_blank"><img src="./link5.png" alt="" /></a>
                 </div>
               </div>

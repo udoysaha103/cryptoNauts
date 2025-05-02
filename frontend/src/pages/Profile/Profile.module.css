@@ -210,14 +210,14 @@
 }
 
 .sec2_2Socials{
-    width: 30%;
+    width: 22%;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
 .sec2_2Socials a{
-    width: 30%;
+    width: 40%;
     border: 1px solid white;
     border-radius: 10%;
 
